@@ -1,0 +1,13 @@
+//modelo de plano que vai trabalhar -- sobrescrever o plano de organização do sequelize
+//passar a configuração
+//mudar plain text no canto direito para javascript para reconhecer as tags
+
+const path = require('path'); /*biblioteca do node*/
+
+module.exports = {
+    //a partir do diretótio atual, cada vírgula adentra um diretório
+    config: path.resolve(__dirname, 'src', 'config', 'database.js'),
+    'models-path': path.resolve(__dirname, 'src', 'database', 'models'),
+    'seeders-path': path.resolve(__dirname, 'src', 'database', 'seeders'),
+    'migrations-path': path.resolve(__dirname, 'src', 'database', 'migrations')
+}

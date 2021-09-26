@@ -5,10 +5,11 @@ module.exports = {
     development:{
         //configuração de banco do postgres
         dialect: 'postgres',
-        host: 'localhost',
-        username: 'default',
-        password: 'secret',
-        database: 'project03',
+        host: 'postgres://nhtuzuan:WpLTNjs-EtD5LwQlG6URtuHzMZ8EUjvE@motty.db.elephantsql.com/nhtuzuan',
+        username: 'nhtuzuan',
+        password: 'WpLTNjs-EtD5LwQlG6URtuHzMZ8EUjvE',
+        database: 'horo-db',
+        port: 5000,
         define: {
             timestamps: true,
             //os itens da tabela são com _ como complemento
