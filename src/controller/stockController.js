@@ -1,13 +1,9 @@
+const Stock = require('../database/models/stock')
+
 module.exports = {
-    index(req, res) {
-        const stocks = [
-            {
-                name: 'MGLU3'
-            },
-            {
-                name: 'ALPA4'
-            }
-        ];
+    async index(req, res) {
+        const stocks = await Stock.findAll()
+
         return res.json(stocks)
     }
 }

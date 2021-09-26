@@ -5,6 +5,7 @@ const port = process.env.PORT || 3333;
 //routers
 const routes = require("./routes")
 
+require('./database/index')
 
 //apply middleware default (global)
 app.use(express.json())
