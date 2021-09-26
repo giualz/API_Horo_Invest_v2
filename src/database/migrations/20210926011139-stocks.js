@@ -1,9 +1,11 @@
 'use strict';
 
+const NameTable = 'stocks'
+
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     //norteia como vai ser o db
-    return queryInterface.createTable('stocks', {
+    return queryInterface.createTable(NameTable, {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -11,7 +13,7 @@ module.exports = {
         primaryKey: true
       },
       stock_name: {
-        type: Sequelize.TEXT,
+        type: Sequelize.STRING,
         allowNull: false
       },
       created_at: {
@@ -26,11 +28,8 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    /**
-     * Add reverting commands here.
-     *
-     * Example:
-     * await queryInterface.dropTable('users');
-     */
+
+    await queryInterface.dropTable(NameTable);
+
   }
 };
