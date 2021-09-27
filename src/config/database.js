@@ -8,13 +8,16 @@ module.exports = {
         host: 'postgres://nhtuzuan:WpLTNjs-EtD5LwQlG6URtuHzMZ8EUjvE@motty.db.elephantsql.com/nhtuzuan',
         username: 'nhtuzuan',
         password: 'WpLTNjs-EtD5LwQlG6URtuHzMZ8EUjvE',
-        database: 'horo-db',
-        port: 5000,
+        database: 'nhtuzuan',     
+        port: 5432,
         define: {
             timestamps: true,
             //os itens da tabela são com _ como complemento
             underscore: true,
-        }
+        },
+        dialectOptions: {
+            ssl: true
+          },
     }
 
 }

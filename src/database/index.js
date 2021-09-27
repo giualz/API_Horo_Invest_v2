@@ -6,7 +6,7 @@ const Stock = require('./models/stock')
 //configuração de banco
 const connection = new Sequelize(dbConfig.development)
 
-// injeta no banco a configuração
+// injeta no banco a
 Stock.init(connection)
 
 

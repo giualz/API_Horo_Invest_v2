@@ -14,7 +14,9 @@ class Stock extends Model {
             stock_quantity: DataTypes.INTEGER,
             stock_price: DataTypes.INTEGER,
             status: DataTypes.BOOLEAN,
-        }, sequelize
+        }, 
+        //objeto de configuração
+        {sequelize}
         );
     }
 }
