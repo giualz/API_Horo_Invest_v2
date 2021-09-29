@@ -1,18 +1,17 @@
 'use strict';
 
-const NameTable = 'stocks'
+const NameTable = 'cryptos'
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    //norteia como vai ser o db
-    return queryInterface.createTable(NameTable, {
+    await queryInterface.createTable(NameTable, {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
         primaryKey: true
       },
-      stock_name: {
+      currency_name: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -24,12 +23,9 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false
       }
-    })
+    });
   },
-
   down: async (queryInterface, Sequelize) => {
-
     await queryInterface.dropTable(NameTable);
-
   }
 };

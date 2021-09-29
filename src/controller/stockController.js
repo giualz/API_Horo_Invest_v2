@@ -23,6 +23,12 @@ module.exports = {
     async show(req, res) {
         const { id } = req.params
 
-        res.json(id)
+        //find by primary key
+        const stock = await Stock.findByPk()
+        console.log(stock)
+        if (!stock) {
+            res.status(400).json({ error: `Invalid param ${id}` })
+        }
+        return res.json(stock)
     }
 }
