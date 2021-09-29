@@ -1,9 +1,9 @@
 //params - check, header
 const { validateDto } = require('../utils/handler')
-const { body } = require('express-validator');
+const { body, param } = require('express-validator');
 
 //array (cada item é um middleware) e injeta os erros
-exports.stocksSchema = validateDto([
+exports.stockSchema = validateDto([
     //array de middlewares
     body('name')
         .notEmpty()
@@ -17,4 +17,11 @@ exports.stocksSchema = validateDto([
     body('stockPrice')
         .notEmpty()
         .withMessage('Insert price'),
+])
+
+exports.stockParams = validateDto([
+    param('id')
+    .notEmpty()
+    .isNumeric()
+    .withMessage('Insert valid param')
 ])

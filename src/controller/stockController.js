@@ -18,5 +18,11 @@ module.exports = {
             console.log(error)
         }
 
+    },
+
+    async show(req, res) {
+        const { id } = req.params
+
+        res.json(id)
     }
 }

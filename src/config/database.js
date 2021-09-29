@@ -5,7 +5,7 @@ module.exports = {
     development:{
         //configuração de banco do postgres
         dialect: 'postgres',
-        host: 'postgres://nhtuzuan:WpLTNjs-EtD5LwQlG6URtuHzMZ8EUjvE@motty.db.elephantsql.com/nhtuzuan',
+        host: 'motty.db.elephantsql.com',
         username: 'nhtuzuan',
         password: 'WpLTNjs-EtD5LwQlG6URtuHzMZ8EUjvE',
         database: 'nhtuzuan',     
