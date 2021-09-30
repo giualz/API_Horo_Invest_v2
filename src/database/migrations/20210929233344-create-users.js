@@ -1,18 +1,20 @@
 'use strict';
-
-const NameTable = 'cryptos'
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable(NameTable, {
+    await queryInterface.createTable('Users', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,
-        primaryKey: true
+        primaryKey: true,
+        
       },
-      currency_name: {
+      name: {
         type: Sequelize.STRING,
+        allowNull: false
+      },
+      email: {
+        type: Sequelize.TEXT,
         allowNull: false
       },
       createdAt: {
@@ -26,6 +28,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable(NameTable);
+    await queryInterface.dropTable('Users');
   }
 };
