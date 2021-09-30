@@ -1,18 +1,18 @@
-const Stock = require('../database/models/stock')
-const { validationResult } = require('express-validator')
+const Currency = require('../database/models/currencies')
+// const { validationResult } = require('express-validator')
 
 module.exports = {
     async index(req, res) {
-        const stocks = await Stock.findAll()
+        const currencies = await Currency.findAll()
 
-        return res.json(stocks)
+        return res.json(currencies)
     },
 
     async store(req, res) {
         const data = req.body
 
         try {
-            const create = await Stock.create(data)
+            const create = await Currency.create(data)
             return res.json(create)
         } catch (error) {
             console.log(error)
@@ -24,11 +24,11 @@ module.exports = {
         const { id } = req.params
 
         //find by primary key
-        const stock = await Stock.findByPk()
-        console.log(stock)
-        if (!stock) {
+        const currency = await Currency.findByPk()
+        console.log(currency)
+        if (!currency) {
             res.status(400).json({ error: `Invalid param ${id}` })
         }
-        return res.json(stock)
+        return res.json(currency)
     }
 }

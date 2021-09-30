@@ -10,13 +10,13 @@ class Stock extends Model {
         //características e informações hierárquicas
         // as informações da migration não precisam ser repetidas no model
         super.init({
-            stock: DataTypes.STRING,
-            stock_quantity: DataTypes.INTEGER,
-            stock_price: DataTypes.INTEGER,
-            status: DataTypes.BOOLEAN,
-        }, 
-        //objeto de configuração
-        {sequelize}
+            stock_name: DataTypes.STRING,
+            // stock_quantity: DataTypes.INTEGER,
+            // stock_price: DataTypes.INTEGER,
+            // status: DataTypes.BOOLEAN,
+        },
+            //objeto de configuração
+        { sequelize, tableName: 'stocks' }
         );
     }
 }

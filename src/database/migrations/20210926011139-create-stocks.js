@@ -1,11 +1,11 @@
 'use strict';
 
-const NameTable = 'stocks'
+const tableName = 'stocks'
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     //norteia como vai ser o db
-    return queryInterface.createTable(NameTable, {
+    return queryInterface.createTable(tableName, {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -16,11 +16,11 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      created_at: {
+      createdAt: {
         type: Sequelize.DATE,
         allowNull: false
       },
-      updated_at: {
+      updatedAt: {
         type: Sequelize.DATE,
         allowNull: false
       }
@@ -29,7 +29,7 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
 
-    await queryInterface.dropTable(NameTable);
+    await queryInterface.dropTable(tableName);
 
   }
 };

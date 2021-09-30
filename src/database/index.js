@@ -9,6 +9,4 @@ const connection = new Sequelize(dbConfig.development)
 // injeta no banco a
 Stock.init(connection)
 
-
-
 module.exports = connection

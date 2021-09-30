@@ -1,18 +1,18 @@
-const Stock = require('../database/models/stock')
-const { validationResult } = require('express-validator')
+const Crypto = require('../database/models/crypto')
+// const { validationResult } = require('express-validator')
 
 module.exports = {
     async index(req, res) {
-        const stocks = await Stock.findAll()
+        const cryptos = await Crypto.findAll()
 
-        return res.json(stocks)
+        return res.json(cryptos)
     },
 
     async store(req, res) {
         const data = req.body
 
         try {
-            const create = await Stock.create(data)
+            const create = await Crypto.create(data)
             return res.json(create)
         } catch (error) {
             console.log(error)
@@ -24,11 +24,11 @@ module.exports = {
         const { id } = req.params
 
         //find by primary key
-        const stock = await Stock.findByPk()
-        console.log(stock)
-        if (!stock) {
+        const crypto = await Crypto.findByPk()
+        console.log(crypto)
+        if (!crypto) {
             res.status(400).json({ error: `Invalid param ${id}` })
         }
-        return res.json(stock)
+        return res.json(crypto)
     }
 }
