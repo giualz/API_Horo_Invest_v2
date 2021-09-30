@@ -1,5 +1,5 @@
 const { validateDto } = require('../utils/handler')
-const { body, param } = require('express-validator');
+const { body } = require('express-validator');
 
 //array (cada item é um middleware) e injeta os erros
 exports.stockSchema = validateDto([
@@ -10,4 +10,3 @@ exports.stockSchema = validateDto([
         .notEmpty()
         .withMessage('Insert price'),
 ])
-
