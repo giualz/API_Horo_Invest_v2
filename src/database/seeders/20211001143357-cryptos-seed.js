@@ -4,16 +4,16 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
 
     const dataArray = [{
-      crypto: 'BTC',
-      crypto_quantity: '',
-      crypto_price: '',
+      crypto_name: 'BTC',
+      // crypto_quantity: '',
+      // crypto_price: '',
       status: true,
       created_at: new Date(),
       updated_at: new Date()
     }, {
-      crypto: 'LUNA',
-      crypto_quantity: '',
-      crypto_price: '',
+      crypto_name: 'LUNA',
+      // crypto_quantity: '',
+      // crypto_price: '',
       status: true,
       created_at: new Date(),
       updated_at: new Date()

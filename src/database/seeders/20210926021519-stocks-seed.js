@@ -4,16 +4,16 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     //tabela
     const dataArray = [{
-      stock: 'MGLU3',
-      stock_quantity: '',
-      stock_price: '',
+      stock_name: 'MGLU3',
+      // stock_quantity: '',
+      // stock_price: '',
       status: true,
       created_at: new Date(),
       updated_at: new Date()
     }, {
-      stock: 'ALPA4',
-      stock_quantity: '',
-      stock_price: '',
+      stock_name: 'ALPA4',
+      // stock_quantity: '',
+      // stock_price: '',
       status: true,
       created_at: new Date(),
       updated_at: new Date()

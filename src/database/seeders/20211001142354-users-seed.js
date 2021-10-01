@@ -6,7 +6,8 @@ module.exports = {
     const dataArray = [{
       name: 'Giulia',
       email: 'giu@lia.com',
-      password: '',
+      //waiting for token
+      password: 1234,
       user_type: 1,
       status: true,
       created_at: new Date(),
@@ -14,12 +15,14 @@ module.exports = {
     }, {
       name: 'Leonardo',
       email: 'leo@terra.com',
-      password: '',
+      //waiting for token
+      password: 5678,
       user_type: 2,
       status: true,
       created_at: new Date(),
       updated_at: new Date()
     }]
+    
     return queryInterface.bulkInsert('users', dataArray)
   },
 
