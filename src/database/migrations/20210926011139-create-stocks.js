@@ -3,6 +3,7 @@
 const tableName = 'stocks'
 
 module.exports = {
+  
   up: async (queryInterface, Sequelize) => {
     //norteia como vai ser o db
     return queryInterface.createTable(tableName, {
@@ -16,11 +17,15 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      createdAt: {
+      status: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+      },
+      created_at: {
         type: Sequelize.DATE,
         allowNull: false
       },
-      updatedAt: {
+      updated_at: {
         type: Sequelize.DATE,
         allowNull: false
       }
@@ -29,7 +34,7 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
 
-    await queryInterface.dropTable(tableName);
+    return queryInterface.dropTable(tableName);
 
   }
 };

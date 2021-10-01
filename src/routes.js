@@ -1,11 +1,11 @@
 const express = require('express');
 const { stockSchema } = require('./schemas/stockSchema');
-const { cryptoSchema } = require('./schemas/cryptoSchema')
+const { cryptoSchema } = require('./schemas/cryptoSchema');
+const { currencySchema } = require('./schemas/currencySchema');
 const { idParams } = require('./schemas/generalSchema');
 const StockController = require('./controller/StockController');
 const CryptoController = require('./controller/CryptoController');
 const CurrencyController = require('./controller/CurrencyController');
-const { currencySchema } = require('./schemas/currencySchema');
 
 const routes = express.Router();
 
