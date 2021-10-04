@@ -22,12 +22,12 @@ module.exports = {
       created_at: new Date(),
       updated_at: new Date()
     }]
-    
+
     return queryInterface.bulkInsert('users', dataArray)
   },
 
   down: async (queryInterface, Sequelize) => {
-    
+
     return await queryInterface.bulkDelete('users', null, {})
   }
 }
