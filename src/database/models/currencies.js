@@ -2,22 +2,30 @@
 const {
   Model
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
-  class currencies extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
+
+  class Currencies extends Model {
+
+    static init(sequelize) {
+      super.init({
+        currency_name: DataTypes.STRING,
+        status: DataTypes.BOOLEAN
+      }, {
+        sequelize,
+        modelName: 'currencies',
+      });
     }
+
+    static associate(models){
+      this.belongsToMany(models.Users, {
+          foreignKey: 'currency_id',
+          through: 'users-currencies',
+          as: 'users'
+      })
+  }
   };
-  currencies.init({
-    currency_name: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'currencies',
-  });
-  return currencies;
+
+  return Currencies;
+  
 };
