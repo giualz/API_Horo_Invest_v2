@@ -1,7 +1,4 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+const { Model, DataTypes } = require('sequelize');
 
   class Currencies extends Model {
 

@@ -25,13 +25,14 @@ module.exports = {
 
         //find by primary key
         const currency = await Currency.findByPk(id, {
-            include: {
+            include: [{
                 association: 'users',
                 attributes: ['name', 'email'],
+                order: [["name", "asc"]],
                 through: {
                     attributes: []
                 }
-            }
+            }]
         })
         console.log(currency)
         if (!currency) {

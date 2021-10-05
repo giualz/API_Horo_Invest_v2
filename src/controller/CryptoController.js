@@ -28,6 +28,7 @@ module.exports = {
             include: {
                 association: 'users',
                 attributes: ['name', 'email'],
+                order: [["name", "asc"]],
                 through: {
                     attributes: []
                 }

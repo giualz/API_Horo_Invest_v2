@@ -8,7 +8,6 @@ const StockOrders = require('./models/stockOrders');
 const CryptoOrders = require('./models/cryptoOrders');
 const CurrencyOrders = require('./models/currencyOrders');
 
-Crypto()
 //configuração de banco
 const connection = new Sequelize(dbConfig['development']);
 
