@@ -24,7 +24,15 @@ module.exports = {
         const { id } = req.params
 
         //find by primary key
-        const crypto = await Crypto.findByPk()
+        const crypto = await Crypto.findByPk(id, {
+            include: {
+                association: 'users',
+                attributes: ['name', 'email'],
+                through: {
+                    attributes: []
+                }
+            }
+        })
         console.log(crypto)
         if (!crypto) {
             res.status(400).json({ error: `Invalid param ${id}` })
