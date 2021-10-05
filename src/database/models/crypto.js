@@ -3,8 +3,6 @@ const {
   Model
 } = require('sequelize');
 
-module.exports = (sequelize, DataTypes) => {
-
   class Cryptos extends Model {
 
     static init(sequelize) {
@@ -26,6 +24,4 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
 
-  return Cryptos;
-
-};
+module.exports = Cryptos

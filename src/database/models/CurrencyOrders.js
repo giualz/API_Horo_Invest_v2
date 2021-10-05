@@ -1,19 +1,19 @@
 const { Model, DataTypes } = require('sequelize');
 
-class StockOrders extends Model {
+class CurrencyOrders extends Model {
 
     static init(sequelize) {
 
         super.init(
             {
                 email: DataTypes.TEXT,
-                stock_name: DataTypes.STRING,
-                stock_quantity: DataTypes.INTEGER,
-                stock_price: DataTypes.INTEGER
+                currency_name: DataTypes.STRING,
+                currency_quantity: DataTypes.INTEGER,
+                currency_price: DataTypes.INTEGER
             },   
             {
                 sequelize,
-                tableName: 'orders-stocks'
+                tableName: 'orders-currencies'
             }
         );
     }
@@ -21,10 +21,10 @@ class StockOrders extends Model {
     static associate(models){
         this.belongsToMany(models.Users, {
             foreignKey: 'stock_id',
-            through: 'orders-stocks',
+            through: 'orders-currencies',
             as: 'users'
         })
     }
 }
 
-module.exports = StockOrders
+module.exports = CurrencyOrders
