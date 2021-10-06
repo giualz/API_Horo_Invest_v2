@@ -24,7 +24,15 @@ module.exports = {
         const { id } = req.params
 
         //find by primary key
-        const currency = await Currency.findByPk()
+        const currency = await Currency.findByPk(id, {
+            include: [{
+                association: 'users',
+                attributes: ['name', 'email'],
+                through: {
+                    attributes: []
+                }
+            }]
+        })
         console.log(currency)
         if (!currency) {
             res.status(400).json({ error: `Invalid param ${id}` })

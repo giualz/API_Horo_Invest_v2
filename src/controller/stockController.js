@@ -24,7 +24,15 @@ module.exports = {
         const { id } = req.params
 
         //find by primary key
-        const stock = await Stock.findByPk()
+        const stock = await Stock.findByPk(id, {
+            include: {
+                association: 'users',
+                attributes: ['name', 'email'],
+                through: {
+                    attributes: []
+                }
+            }
+        })
         console.log(stock)
         if (!stock) {
             res.status(400).json({ error: `Invalid param ${id}` })

@@ -5,15 +5,11 @@ module.exports = {
     //tabela
     const dataArray = [{
       stock_name: 'MGLU3',
-      // stock_quantity: '',
-      // stock_price: '',
       status: true,
       created_at: new Date(),
       updated_at: new Date()
     }, {
       stock_name: 'ALPA4',
-      // stock_quantity: '',
-      // stock_price: '',
       status: true,
       created_at: new Date(),
       updated_at: new Date()

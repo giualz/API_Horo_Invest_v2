@@ -3,10 +3,10 @@ const { body } = require('express-validator');
 
 //array (cada item é um middleware) e injeta os erros
 exports.stockSchema = validateDto([
-    body('stockQuantity')
+    body('stock_quantity')
         .notEmpty()
         .withMessage('Insert quantity'),
-    body('stockPrice')
+    body('stock_price')
         .notEmpty()
         .withMessage('Insert price'),
 ])

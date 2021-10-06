@@ -1,9 +1,4 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-
-module.exports = (sequelize, DataTypes) => {
+const { Model, DataTypes } = require('sequelize');
 
   class Cryptos extends Model {
 
@@ -26,6 +21,4 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
 
-  return Cryptos;
-
-};
+module.exports = Cryptos

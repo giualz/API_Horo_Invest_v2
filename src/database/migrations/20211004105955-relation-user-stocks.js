@@ -4,7 +4,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable('users-stocks', {
+    return queryInterface.createTable('orders-stocks', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -24,13 +24,29 @@ module.exports = {
         references: { model: 'stock', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
+      },
+      stock_quantity: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      stock_price: {
+        type: Sequelize.INTEGER,
+        allowNull: false
+      },
+      created_at: {
+        type: Sequelize.DATE,
+        allowNull: false
+      },
+      updated_at: {
+        type: Sequelize.DATE,
+        allowNull: false
       }
     })
   },
 
   down: async (queryInterface) => {
 
-    return queryInterface.dropTable('users-stocks');
+    return queryInterface.dropTable('orders-stocks');
 
   }
 };

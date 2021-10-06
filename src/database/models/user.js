@@ -1,9 +1,4 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-
-module.exports = (sequelize, DataTypes) => {
+const { Model, DataTypes } = require('sequelize');
 
   class Users extends Model {
 
@@ -40,11 +35,9 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsToMany(models.Users, {
         foreignKey: 'user_id',
         through: 'users-cryptos',
-        as: 'cryptoss'
+        as: 'cryptos'
       })
     }
   };
 
-  return Users;
-  
-};
+module.exports = Users
