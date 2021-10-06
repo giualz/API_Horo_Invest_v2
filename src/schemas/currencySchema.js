@@ -3,6 +3,15 @@ const { body } = require('express-validator');
 
 //array (cada item é um middleware) e injeta os erros
 exports.currencySchema = validateDto([
+    body('currency_name')
+        .notEmpty()
+        .withMessage('Insert currency name'),
+    body('status')
+        .notEmpty()
+        .withMessage('Insert status')
+]);
+
+exports.currencyOrderSchema = validateDto([
     body('currency_quantity')
         .notEmpty()
         .withMessage('Insert quantity'),

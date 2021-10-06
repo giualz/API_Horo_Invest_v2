@@ -1,7 +1,7 @@
 const CryptoOrders = require('../database/models/CryptoOrders');
 
 module.exports = {
-    async destroy(req, res) {
+    async destroyOrder(req, res) {
         const params = req.params
         const order = await CryptoOrders.findOne({
             where: {

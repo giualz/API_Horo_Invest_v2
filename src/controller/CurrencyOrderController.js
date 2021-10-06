@@ -1,7 +1,7 @@
 const CurrencyOrders = require('../database/models/CurrencyOrders');
 
 module.exports = {
-    async destroy(req, res) {
+    async destroyOrder(req, res) {
         const params = req.params
         const order = await CurrencyOrders.findOne({
             where: {
