@@ -1,3 +1,4 @@
+const { destroy } = require('../database/models/stock')
 const Stock = require('../database/models/stock')
 // const { validationResult } = require('express-validator')
 
