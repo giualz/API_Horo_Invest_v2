@@ -11,17 +11,17 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true
       },
-      email: {
-        type: Sequelize.TEXT,
+      user: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'user', key: 'id' },
+        references: { model: 'users', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      stock_name: {
-        type: Sequelize.STRING,
+      stock: { 
+        type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'stock', key: 'id' },
+        references: { model: 'stocks', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },

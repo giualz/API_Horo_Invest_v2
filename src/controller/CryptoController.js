@@ -1,4 +1,4 @@
-const Crypto = require('../database/models/crypto')
+const Crypto = require('../database/models/crypto');
 // const { validationResult } = require('express-validator')
 
 module.exports = {

@@ -1,4 +1,4 @@
-const Currency = require('../database/models/currencies')
+const Currency = require('../database/models/currencies');
 // const { validationResult } = require('express-validator')
 
 module.exports = {

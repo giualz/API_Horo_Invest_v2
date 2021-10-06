@@ -6,10 +6,10 @@ class CryptoOrders extends Model {
 
         super.init(
             {
-                email: DataTypes.TEXT,
-                crypto_name: DataTypes.STRING,
+                // email: DataTypes.TEXT,
+                // crypto_name: DataTypes.STRING,
                 crypto_quantity: DataTypes.INTEGER,
-                crypto: DataTypes.INTEGER
+                crypto_price: DataTypes.INTEGER
             },   
             {
                 sequelize,
