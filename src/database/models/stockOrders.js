@@ -6,8 +6,8 @@ class StockOrders extends Model {
 
         super.init(
             {
-                email: DataTypes.TEXT,
-                stock_name: DataTypes.STRING,
+                // email: DataTypes.TEXT,
+                // stock_name: DataTypes.STRING,
                 stock_quantity: DataTypes.INTEGER,
                 stock_price: DataTypes.INTEGER
             },   

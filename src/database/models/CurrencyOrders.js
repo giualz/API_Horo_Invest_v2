@@ -6,8 +6,8 @@ class CurrencyOrders extends Model {
 
         super.init(
             {
-                email: DataTypes.TEXT,
-                currency_name: DataTypes.STRING,
+                // email: DataTypes.TEXT,
+                // currency_name: DataTypes.STRING,
                 currency_quantity: DataTypes.INTEGER,
                 currency_price: DataTypes.INTEGER
             },   
