@@ -4,16 +4,16 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     //tabela
     const dataArray = [{
-      stock: 'MGLU3',
-      stock_quantity: '',
-      stock_price: '',
+      stock_name: 'MGLU3',
+      // stock_quantity: '',
+      // stock_price: '',
       status: true,
       created_at: new Date(),
       updated_at: new Date()
     }, {
-      stock: 'ALPA4',
-      stock_quantity: '',
-      stock_price: '',
+      stock_name: 'ALPA4',
+      // stock_quantity: '',
+      // stock_price: '',
       status: true,
       created_at: new Date(),
       updated_at: new Date()
@@ -26,6 +26,6 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
     //deleta stocks, null = sem configurações, deixa vazio
-    return await queryInterface.bulkDelete('atocks', null, {})
+    return await queryInterface.bulkDelete('stocks', null, {})
   }
 };

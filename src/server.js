@@ -3,10 +3,11 @@ const app = express();
 const cors = require('cors');
 const port = process.env.PORT || 3333;
 require('./database/index')
+
 //routers
 const routes = require('./routes')
 
-
+app.use(cors())
 
 app.use(cors())
 //apply middleware default (global)

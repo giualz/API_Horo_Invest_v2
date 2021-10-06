@@ -2,22 +2,30 @@
 const {
   Model
 } = require('sequelize');
+
 module.exports = (sequelize, DataTypes) => {
-  class crypto extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
-    static associate(models) {
-      // define association here
+
+  class Cryptos extends Model {
+
+    static init(sequelize) {
+      super.init({
+        crypto_name: DataTypes.STRING,
+        status: DataTypes.BOOLEAN
+      }, {
+        sequelize,
+        modelName: 'cryptos',
+      });
     }
-  };
-  crypto.init({
-    crypto_name: DataTypes.STRING
-  }, {
-    sequelize,
-    modelName: 'crypto',
-  });
-  return crypto;
+
+    static associate(models) {
+      this.belongsToMany(models.Users, {
+        foreignKey: 'crypto_id',
+        through: 'users-cryptos',
+        as: 'users'
+      })
+    }
+  }
+
+  return Cryptos;
+
 };
