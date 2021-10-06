@@ -17,15 +17,18 @@ class Stocks extends Model {
             //objeto de configuração           
             {
                 sequelize,
-                tableName: 'stocks'
+                tableName: 'stocks',
+                updatedAt: 'updated_at',
+                createdAt: 'created_at'
+
             }
         );
     }
 
-    static associate(models){
+    static associate(models) {
         this.belongsToMany(models.Users, {
-            foreignKey: 'stock_id',
-            through: 'users-stocks',
+            foreignKey: 'id',
+            through: 'orders-stocks', 
             as: 'users'
         })
     }

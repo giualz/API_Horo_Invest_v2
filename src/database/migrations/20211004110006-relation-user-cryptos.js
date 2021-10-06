@@ -11,17 +11,17 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true
       },
-      email: {
-        type: Sequelize.TEXT,
+      user: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'user', key: 'id' },
+        references: { model: 'users', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      crypto_name: {
-        type: Sequelize.STRING,
+      crypto: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'crypto', key: 'id' },
+        references: { model: 'cryptos', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
