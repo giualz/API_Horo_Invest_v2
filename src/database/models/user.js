@@ -6,7 +6,10 @@ const { Model, DataTypes } = require('sequelize');
       super.init(
         {
           name: DataTypes.STRING,
-          email: DataTypes.TEXT
+          email: DataTypes.TEXT, 
+          password: DataTypes.STRING,
+          user_type: DataTypes.INTEGER,
+          status: DataTypes.BOOLEAN
         },
         {
           sequelize,
