@@ -9,8 +9,13 @@ const CurrencyController = require('./controller/CurrencyController');
 const StockOrderController = require('./controller/StockOrderController');
 const CryptoOrderController = require('./controller/CryptoOrderController');
 const CurrencyOrderController = require('./controller/CurrencyOrderController');
+const AuthController = require('./controller/AuthController')
 
 const routes = express.Router();
+
+routes.post('/login', AuthController.login)
+
+routes.post('/register', AuthController.register)
 
 routes.get('/stocks', StockController.index);
 routes.get('/stocks/:id', [idParams], StockController.show);

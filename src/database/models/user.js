@@ -13,7 +13,9 @@ const { Model, DataTypes } = require('sequelize');
         },
         {
           sequelize,
-          tableName: 'users'
+          tableName: 'users',
+          updatedAt: 'updated_at',
+          createdAt: 'created_at'
         }
       );
     }
