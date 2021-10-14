@@ -1,15 +1,15 @@
 const express = require('express');
-const { stockSchema, stockOrderSchema } = require('./schemas/stockSchema');
-const { cryptoSchema, cryptoOrderSchema } = require('./schemas/cryptoSchema');
-const { currencySchema, currencyOrderSchema } = require('./schemas/currencySchema');
-const { idParams } = require('./schemas/generalSchema');
-const StockController = require('./controller/StockController');
-const CryptoController = require('./controller/CryptoController');
-const CurrencyController = require('./controller/CurrencyController');
-const StockOrderController = require('./controller/StockOrderController');
-const CryptoOrderController = require('./controller/CryptoOrderController');
-const CurrencyOrderController = require('./controller/CurrencyOrderController');
-const AuthController = require('./controller/AuthController')
+const { stockSchema, stockOrderSchema } = require('../schemas/stockSchema');
+const { cryptoSchema, cryptoOrderSchema } = require('../schemas/cryptoSchema');
+const { currencySchema, currencyOrderSchema } = require('../schemas/currencySchema');
+const { idParams } = require('../schemas/generalSchema');
+const StockController = require('../controller/StockController');
+const CryptoController = require('../controller/CryptoController');
+const CurrencyController = require('../controller/CurrencyController');
+const StockOrderController = require('../controller/StockOrderController');
+const CryptoOrderController = require('../controller/CryptoOrderController');
+const CurrencyOrderController = require('../controller/CurrencyOrderController');
+const AuthController = require('../controller/AuthController')
 
 const routes = express.Router();
 
