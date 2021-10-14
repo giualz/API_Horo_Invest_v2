@@ -1,0 +1,86 @@
+get para a tabela de usuários
+*admin
+
+//put se sobrar tempo
+
+/:user(token)/orders/stocks/:id/delete
+
+1 - AUTH - login
+    * dados no body
+    * email no formato certo 
+    * email existente na DB
+    * senha no formato certo
+    * senha de acordo com o banco
+    * retornar token caso tudo esteja correto
+
+2 - AUTH - register
+    * dados no body
+    * dados no formato certo 
+    * conferir se email existe na DB
+        *caso exista, redirecionar para a página de login
+    * retornar sucesso caso tudo esteja correto
+
+3 - STOCKS
+
+3.1 - get /stocks
+    * request auth
+    * retornar lista de stocks
+
+// adicional 
+3.2 - get /stocks/:id
+    * request auth
+    * parâmetro como integer
+    * retornar dados do stock
+
+3.3 - post /stocks // tirar id /:id
+    * request auth
+    * request auth admin
+    * parâmetro como integer
+    * dados no formato adequado
+    * return cadastro de stock
+
+3.4 - post /stocks/:id/order
+    * request auth
+    * request auth user
+    * parâmetro como integer
+    * dados no formato adequado
+    * return execução de ordem
+
+// após rota exibindo ordens executadas
+3.5 - delete /stocks/:id/order/:user
+    * request auth
+    * request auth user
+    * 
+    * return delete
+
+4 - CRYPTOS
+
+4.1 - get /cryptos
+    * request auth
+    * retornar lista de cryptos
+
+4.2 - get /cryptos/:id
+    * request auth
+    * parâmetro como integer
+    * retornar dados do stock
+
+4.3 - post /cryptos/:id
+    * request auth
+    * request auth admin
+    * dados no formato adequado
+    * return cadastro de stock
+
+4.4 - post /cryptos/:id/order
+    * request auth
+    * request auth user
+    * dados no formato adequado
+    * return execução de ordem
+
+// após rota exibindo ordens executadas
+4.5 - delete /cryptos/:id/order/:user
+    * request auth
+    * request auth user
+    * 
+    * return delete
+
+5 - CURRENCIES - 

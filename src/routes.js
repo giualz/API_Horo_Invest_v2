@@ -13,27 +13,28 @@ const AuthController = require('./controller/AuthController')
 
 const routes = express.Router();
 
-routes.post('/login', AuthController.login)
+routes.post('/login', AuthController.login);
 
-routes.post('/register', AuthController.register)
+routes.post('/register', AuthController.register);
 
 routes.get('/stocks', StockController.index);
 routes.get('/stocks/:id', [idParams], StockController.show);
-routes.post('/stocks/:id', [stockSchema], StockController.store); /*?????????????*/
-routes.post('/stocks/:id/order', [stockOrderSchema], StockOrderController.createOrder)
+routes.post('/stocks/:id', [stockSchema], StockController.store); 
+routes.post('/stocks/:id/order', [stockOrderSchema], StockOrderController.createOrder);
 //from relation - user
-routes.delete('/stocks/:id/order/:user', [idParams], StockOrderController.destroyOrder);
+//:user = token
+routes.delete('/:user/orders/stocks/:id/delete', [idParams], StockOrderController.destroyOrder);
 
 routes.get('/cryptos', CryptoController.index);
 routes.get('/cryptos/:id', [idParams], CryptoController.show);
-routes.post('/cryptos/:id', [cryptoSchema], CryptoController.store); /*?????????????*/
-routes.post('/cryptos/:id/order', [cryptoOrderSchema], CryptoOrderController.createOrder)
-routes.delete('/cryptos/:id/order/:user', [idParams], CryptoOrderController.destroyOrder);
+routes.post('/cryptos/:id', [cryptoSchema], CryptoController.store); 
+routes.post('/cryptos/:id/order', [cryptoOrderSchema], CryptoOrderController.createOrder);
+routes.delete('/:user/orders/cryptos/:id/delete', [idParams], CryptoOrderController.destroyOrder);
 
 routes.get('/currencies', CurrencyController.index);
 routes.get('/currencies/:id', [idParams], CurrencyController.show);
-routes.post('/currencies/:id', [currencySchema], CurrencyController.store); /*?????????????*/
-routes.post('/currencies/:id/order', [currencyOrderSchema], CurrencyOrderController.createOrder)
-routes.delete('/currencies/:id/order/:user', [idParams], CurrencyOrderController.destroyOrder);
+routes.post('/currencies/:id', [currencySchema], CurrencyController.store);
+routes.post('/currencies/:id/order', [currencyOrderSchema], CurrencyOrderController.createOrder);
+routes.delete('/:user/orders/currencies/:id/delete', [idParams], CurrencyOrderController.destroyOrder);
 
 module.exports = routes
