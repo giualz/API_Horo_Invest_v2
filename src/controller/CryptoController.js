@@ -33,7 +33,7 @@ module.exports = {
                 }
             }
         })
-        console.log(crypto)
+        // console.log(crypto)
         if (!crypto) {
             res.status(400).json({ error: `Invalid param ${id}` })
         }
