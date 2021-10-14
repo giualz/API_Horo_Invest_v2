@@ -12,12 +12,19 @@ module.exports = {
         if(!user) {
             return res
                 .status(400)
-                .json('User not found')
+                .json({ error: 'User not found' })
         }
+
         if(!(await bcrypt.compare(password, user.password))) {
             return res
                 .status(400)
-                .json('Wrong password')
+                .json({ error: 'Wrong password' })
+        }
+
+        if(!user.status) {
+            return res
+                .status(400)
+                .json({ error: 'Invalid user' })
         }
 
         const payload = {id: user.id, name: user.name, email: user.email, 
