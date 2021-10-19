@@ -6,4 +6,8 @@ module.exports = {
 
         return res.json(users)
     }, 
+
+    async userUpdate(req, res) {
+        
+    }
 }
