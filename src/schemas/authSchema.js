@@ -10,21 +10,27 @@ exports.loginSchema = validateDto([
     body('password')
         .notEmpty()
         .withMessage('Password cannot be empty')
-        .isString()
-        .withMessage('password must be valid')
 ])
 
 exports.registerSchema = validateDto([
     ...loginSchema,
     body('name')
         .notEmpty()
-        .withMessage(''),
+        .withMessage('Name cannot be empty'),
     body('email')
         .notEmpty()
-        .withMessage(''),
+        .withMessage('Email cannot be empty'),
     body('password')
         .notEmpty()
-        .withMessage(''),
+        .withMessage('Password cannot be empty')
+        .isString()
+        .withMessage('Password must be valid')
+        .isAlphanumeric()
+        .withMessage('Password may contain only letters and numbers')
+        .isLength({min: 6})
+        .withMessage('Password must contain at least 6 characters')
+        .isLength({max: 30})
+        .withMessage('Password must not contain more than 30 characters'),
     body('user_type')
         .default(2)
         .isNumeric(),
