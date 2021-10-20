@@ -8,6 +8,7 @@ module.exports = {
         const { crypto_quantity, crypto_price } = req.body;
 
         const order = await CryptoOrders.create({
+            id,
             crypto_quantity,
             crypto_price,
         })

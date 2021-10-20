@@ -23,26 +23,26 @@ const { Model, DataTypes } = require('sequelize');
     static associate(models) {
       this.belongsToMany(models.Stocks, {
         foreignKey: 'user_id',
-        through: 'users-stocks',
+        through: 'orders-stocks',
         as: 'stocks'
       })
     }
 
-    // static associate(models) {
-    //   this.belongsToMany(models.Currencies, {
-    //     foreignKey: 'user_id',
-    //     through: 'users-currencies',
-    //     as: 'currencies'
-    //   })
-    // }
+    static associate(models) {
+      this.belongsToMany(models.Currencies, {
+        foreignKey: 'user_id',
+        through: 'orders-currencies',
+        as: 'currencies'
+      })
+    }
 
-    // static associate(models) {
-    //   this.belongsToMany(models.Cryptos, {
-    //     foreignKey: 'user_id',
-    //     through: 'users-cryptos',
-    //     as: 'cryptos'
-    //   })
-    // }
+    static associate(models) {
+      this.belongsToMany(models.Cryptos, {
+        foreignKey: 'user_id',
+        through: 'orders-cryptos',
+        as: 'cryptos'
+      })
+    }
   };
 
 module.exports = Users

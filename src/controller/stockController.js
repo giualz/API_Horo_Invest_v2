@@ -3,6 +3,7 @@ const errorHandler = require('../config/errorHandler');
 
 module.exports = {
     async index(req, res) {
+        //integrar com api
         const stocks = await Stock.findAll()
 
         return res.json(stocks)

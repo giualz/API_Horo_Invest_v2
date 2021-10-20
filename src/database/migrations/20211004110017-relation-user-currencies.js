@@ -14,14 +14,14 @@ module.exports = {
       user: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'users', key: 'id' },
+        references: { model: 'users', key: 'user_id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
       currency: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'currencies', key: 'id' },
+        references: { model: 'currencies', key: 'currency_id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
