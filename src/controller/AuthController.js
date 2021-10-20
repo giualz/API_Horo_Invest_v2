@@ -1,6 +1,7 @@
-const User = require('../database/models/user')
-const { generateHash, generateToken } = require('../utils/helper')
-const bcrypt = require('bcrypt')
+const User = require('../database/models/user');
+const { generateHash, generateToken } = require('../utils/helper');
+const bcrypt = require('bcrypt');
+const errorHandler = require('../config/errorHandler');
 
 module.exports = {
 
@@ -10,21 +11,15 @@ module.exports = {
         const user = await User.findOne({where: {email}})
 
         if(!user) {
-            return res
-                .status(400)
-                .json({ error: 'User not found' })
+            throw new errorHandler(400, 'User not found')
         }
 
         if(!(await bcrypt.compare(password, user.password))) {
-            return res
-                .status(400)
-                .json({ error: 'Wrong password' })
+            throw new errorHandler(400, 'Wrong password')
         }
 
         if(!user.status) {
-            return res
-                .status(400)
-                .json({ error: 'Invalid user' })
+            throw new errorHandler(400, 'Invalid user')
         }
 
         const payload = {id: user.id, name: user.name, email: user.email, 

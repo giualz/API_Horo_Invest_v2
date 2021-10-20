@@ -1,6 +1,5 @@
-const { destroy } = require('../database/models/stock');
 const Stock = require('../database/models/stock');
-// const { validationResult } = require('express-validator')
+const errorHandler = require('../config/errorHandler');
 
 module.exports = {
     async index(req, res) {
@@ -36,7 +35,7 @@ module.exports = {
         })
         console.log(stock)
         if (!stock) {
-            res.status(400).json({ error: `Invalid param ${id}` })
+            throw new errorHandler(400, `Invalid param ${id}`)
         }
         return res.json(stock)
     }

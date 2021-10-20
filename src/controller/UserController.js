@@ -8,6 +8,12 @@ module.exports = {
     }, 
 
     async userUpdate(req, res) {
-        
+        // const params = req.params
+        // const user = await User.findOne({
+        //     where: {
+        //         email:
+        //         password:
+        //     }
+        // })
     }
 }
