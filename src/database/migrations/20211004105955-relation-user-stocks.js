@@ -11,14 +11,14 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true
       },
-      user: {
+      user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: 'users', key: 'user_id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      stock: { 
+      stock_id: { 
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: 'stocks', key: 'stock_id' },

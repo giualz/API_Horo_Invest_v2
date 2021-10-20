@@ -27,7 +27,7 @@ class Stocks extends Model {
 
     static associate(models) {
         this.belongsToMany(models.Users, {
-            foreignKey: 'id',
+            foreignKey: 'stock_id',
             through: 'orders-stocks', 
             as: 'users'
         })

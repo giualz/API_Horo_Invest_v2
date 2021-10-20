@@ -22,6 +22,7 @@ const { Model, DataTypes } = require('sequelize');
 
     static associate(models) {
       this.belongsToMany(models.Stocks, {
+        //user_id vai estar na tabela de relação
         foreignKey: 'user_id',
         through: 'orders-stocks',
         as: 'stocks'

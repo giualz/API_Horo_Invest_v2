@@ -16,7 +16,7 @@ class Cryptos extends Model {
 
   static associate(models) {
     this.belongsToMany(models.Users, {
-      foreignKey: 'id',
+      foreignKey: 'crypto_id',
       through: 'orders-cryptos',
       as: 'users'
     })
