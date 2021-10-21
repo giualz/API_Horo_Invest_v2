@@ -4,7 +4,7 @@ const CurrencyController = require('../controller/CurrencyController');
 const CurrencyOrderController = require('../controller/CurrencyOrderController');
 const authenticate = require('../middlewares/authenticate');
 const adminOnly = require('../middlewares/adminOnly');
-const userOnly = require('../middlewares/userOnly;');
+const userOnly = require('../middlewares/userOnly');
 
 module.exports = (routes) => {
 
@@ -22,13 +22,13 @@ module.exports = (routes) => {
 
     routes.post(
         '/currencies/:id',
-        [authenticate, currencySchema],
+        [adminOnly, currencySchema],
         CurrencyController.store
     );
 
     routes.post(
         '/currencies/:id/order',
-        [adminOnly, currencyOrderSchema],
+        [authenticate, currencyOrderSchema],
         CurrencyOrderController.createOrder
     );
 

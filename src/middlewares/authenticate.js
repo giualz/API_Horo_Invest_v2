@@ -4,7 +4,7 @@ const { SECRET_KEY: secret_key } = process.env
 module.exports = (req, res, next) => {
 
     //header padrão de autorização
-    const authHeader = req.header.authorization
+    const authHeader = req.headers.authorization
 
     if (!authHeader) {
         return res.status(401).json({ error: 'No token provided' })
@@ -12,7 +12,7 @@ module.exports = (req, res, next) => {
 
     const parts = authHeader.split(' ')
 
-    if (parts !== 2){
+    if (parts.length !== 2){
         return res.status(401).json({ error: 'Invalid token' })
     }
 
@@ -25,9 +25,11 @@ module.exports = (req, res, next) => {
         return res.status(401).json({ error: 'Token malformatted' })
     }
 
+
     jwt.verify(token, secret_key, (err, data) => {
         if(err) {
             res.status(401).json({ error: 'Invalid token' })
         }
+        next()
     })
 }

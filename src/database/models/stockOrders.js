@@ -19,13 +19,13 @@ class StockOrders extends Model {
         );
     }
 
-    // static associate(models){
-    //     this.belongsToMany(models.Users, {
-    //         foreignKey: 'stock_id',
-    //         through: 'orders-stocks',
-    //         as: 'users'
-    //     })
-    // }
+    static associate(models){
+        this.belongsToMany(models.Users, {
+            foreignKey: 'stock_id',
+            through: 'orders-stocks',
+            as: 'users'
+        })
+    }
 }
 
 module.exports = StockOrders

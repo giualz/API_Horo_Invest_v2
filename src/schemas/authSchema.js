@@ -1,7 +1,7 @@
 const { validateDto } = require('../utils/handler');
 const { body } = require('express-validator');
 
-exports.loginSchema = validateDto([
+const loginSchema = validateDto([
     body('email')
         .notEmpty()
         .withMessage('Email cannot be empty')
@@ -12,8 +12,8 @@ exports.loginSchema = validateDto([
         .withMessage('Password cannot be empty')
 ])
 
-exports.registerSchema = validateDto([
-    ...loginSchema,
+const registerSchema = validateDto([
+    ... loginSchema,
     body('name')
         .notEmpty()
         .withMessage('Name cannot be empty'),
@@ -37,4 +37,7 @@ exports.registerSchema = validateDto([
     body('status')
         .default(true)
         .isBoolean()
-])
+]);
+
+exports.authSchema = validateDto([...loginSchema]);
+exports.registerSchema = validateDto([...loginSchema])

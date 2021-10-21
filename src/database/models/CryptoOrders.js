@@ -18,13 +18,13 @@ class CryptoOrders extends Model {
         );
     }
 
-    // static associate(models){
-    //     this.belongsToMany(models.Users, {
-    //         foreignKey: 'crypto_id',
-    //         through: 'orders-cryptos',
-    //         as: 'users'
-    //     })
-    // }
+    static associate(models){
+        this.belongsToMany(models.Users, {
+            foreignKey: 'crypto_id',
+            through: 'orders-cryptos',
+            as: 'users'
+        })
+    }
 }
 
 module.exports = CryptoOrders

@@ -1,13 +1,28 @@
+const jwt = require('jsonwebtoken');
 const CryptoOrders = require('../database/models/CryptoOrders');
+const errorHandler = require('../config/errorHandler');
 
 module.exports = {
 
     //CHECK AFTER LOGIN
     async createOrder(req, res) {
         const { id: crypto_id } = req.params;
-        const { id: user_id, 
-            cryptoQuantity:crypto_quantity, 
-            cryptoPrice:crypto_price } = req.body;
+        const {authorization} = req.headers;
+
+        const token = authorization.split(' ')[1]
+        const {
+            id: user_id,
+            user_type
+        } = jwt.decode(token)
+
+        if (user_type !== 1) {
+            throw new errorHandler(400, 'Orders may only be sent by users')
+        }
+
+        const {
+            cryptoQuantity: crypto_quantity,
+            cryptoPrice: crypto_price
+        } = req.body;
 
         const order = await CryptoOrders.create({
             user_id,
@@ -15,6 +30,7 @@ module.exports = {
             crypto_quantity,
             crypto_price,
         })
+        console.log(order)
     },
 
     async destroyOrder(req, res) {

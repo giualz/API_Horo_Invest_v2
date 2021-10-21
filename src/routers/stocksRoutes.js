@@ -4,7 +4,7 @@ const StockController = require('../controller/StockController');
 const StockOrderController = require('../controller/StockOrderController');
 const authenticate = require('../middlewares/authenticate');
 const adminOnly = require('../middlewares/adminOnly');
-const userOnly = require('../middlewares/userOnly;');
+const userOnly = require('../middlewares/userOnly');
 
 module.exports = (routes) => {
     //listar todas as ações true
@@ -21,7 +21,7 @@ module.exports = (routes) => {
         [authenticate, idParams],
         StockController.show
     );
-    
+
     //cadastro de stock
     routes.post(
         '/stocks/:id',
@@ -32,7 +32,7 @@ module.exports = (routes) => {
     //esperar array
     routes.post(
         '/stocks/:id/order',
-        [userOnly, stockOrderSchema],
+        [authenticate, stockOrderSchema],
         StockOrderController.createOrder
     );
 

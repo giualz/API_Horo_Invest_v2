@@ -3,7 +3,7 @@ const { body } = require('express-validator');
 
 //array (cada item é um middleware) e injeta os erros
 exports.cryptoSchema = validateDto([
-    body('crypto_name')
+    body('cryptoName')
         .notEmpty()
         .withMessage('Insert crypto name')
         .isString()
@@ -16,10 +16,10 @@ exports.cryptoSchema = validateDto([
 ]);
 
 exports.cryptoOrderSchema = validateDto([
-    body('crypto_quantity')
+    body('cryptoQuantity')
         .notEmpty()
         .withMessage('Insert quantity'),
-    body('crypto_price')
+    body('cryptoPrice')
         .notEmpty()
         .withMessage('Insert price'),
 ])

@@ -18,13 +18,13 @@ class CurrencyOrders extends Model {
         );
     }
 
-    // static associate(models){
-    //     this.belongsToMany(models.Users, {
-    //         foreignKey: 'stock_id',
-    //         through: 'orders-currencies',
-    //         as: 'users'
-    //     })
-    // }
+    static associate(models){
+        this.belongsToMany(models.Users, {
+            foreignKey: 'stock_id',
+            through: 'orders-currencies',
+            as: 'users'
+        })
+    }
 }
 
 module.exports = CurrencyOrders
