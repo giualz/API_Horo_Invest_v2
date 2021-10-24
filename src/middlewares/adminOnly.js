@@ -20,15 +20,17 @@ module.exports = (req, res, next) => {
     if(schema.toLowerCase() !== 'bearer') {
         return res.status(401).json({ error: 'Token malformatted' })
     }
+    // console.log('#############################')
 
     jwt.verify(token, secret_key, (err, data) => {
         if (err) {
             return res.status(401).json('Invalid token')
         }
-        
-        if(data.user !== 1) {
+        console.log(data)
+        if(data.user_type !== 1) {
             return res.status(401).json({error: 'Unauthorized'})
         }
+        console.log("***********************************")
         next()
     })
 }

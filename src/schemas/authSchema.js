@@ -40,4 +40,4 @@ const registerSchema = validateDto([
 ]);
 
 exports.authSchema = validateDto([...loginSchema]);
-exports.registerSchema = validateDto([...loginSchema])
+exports.registerSchema = validateDto([...registerSchema])

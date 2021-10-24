@@ -20,24 +20,24 @@ module.exports = {
         }
 
     },
+    //VOLTAR PRA CÁ NO FINAL
+    // async show(req, res) {
+    //     const { id } = req.params
 
-    async show(req, res) {
-        const { id } = req.params
-
-        //find by primary key
-        const stock = await Stock.findByPk(id, {
-            include: {
-                association: 'users',
-                attributes: ['name', 'email'],
-                through: {
-                    attributes: []
-                }
-            }
-        })
-        console.log(stock)
-        if (!stock) {
-            throw new errorHandler(400, `Invalid param ${id}`)
-        }
-        return res.json(stock)
-    }
+    //     //find by primary key
+    //     const stock = await Stock.findByPk(id, {
+    //         include: {
+    //             association: 'users',
+    //             attributes: ['name', 'email'],
+    //             through: {
+    //                 attributes: []
+    //             }
+    //         }
+    //     })
+    //     console.log(stock)
+    //     if (!stock) {
+    //         throw new errorHandler(400, `Invalid param ${id}`)
+    //     }
+    //     return res.json(stock)
+    // }
 }

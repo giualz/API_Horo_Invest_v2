@@ -14,14 +14,14 @@ module.exports = (routes) => {
         CurrencyController.index
     );
 
-    routes.get(
-        '/currencies/:id',
-        [authenticate, idParams],
-        CurrencyController.show
-    );
+    // routes.get(
+    //     '/currencies/:id',
+    //     [authenticate, idParams],
+    //     CurrencyController.show
+    // );
 
     routes.post(
-        '/currencies/:id',
+        '/currencies/store',
         [adminOnly, currencySchema],
         CurrencyController.store
     );

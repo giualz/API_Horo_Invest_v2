@@ -9,13 +9,18 @@ module.exports = {
     },
 
     async store(req, res) {
-        const data = req.body
+        console.log('CHEGOU AQUI')
+        const data = req.body 
+
+        
 
         try {
             const create = await Crypto.create(data)
+            console.log('AGORA AQUI')
             return res.json(create)
         } catch (error) {
             console.log(error)
+            console.log('OU AQUI')
         }
 
     },

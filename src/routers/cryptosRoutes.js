@@ -14,15 +14,15 @@ module.exports = (routes) => {
         CryptoController.index
     );
 
-    routes.get(
-        '/cryptos/:id',
-        [authenticate, idParams],
-        CryptoController.show
-    );
+    // routes.get(
+    //     '/cryptos/:id',
+    //     [authenticate, idParams],
+    //     CryptoController.show
+    // );
 
     //adicionar ativo
     routes.post(
-        '/cryptos/:id',
+        '/cryptos/store',
         [adminOnly, cryptoSchema],
         CryptoController.store
     );

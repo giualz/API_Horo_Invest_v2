@@ -3,6 +3,7 @@ const { Model, DataTypes } = require('sequelize');
 class Cryptos extends Model {
 
   static init(sequelize) {
+
     super.init({
       crypto_name: DataTypes.STRING,
       status: DataTypes.BOOLEAN

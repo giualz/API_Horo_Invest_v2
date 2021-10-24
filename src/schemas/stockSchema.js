@@ -9,8 +9,6 @@ exports.stockSchema = validateDto([
         .isString()
         .withMessage('Currency name must be a string'),
     body('status')
-        .notEmpty()
-        .withMessage('Insert status')
         .default(true)
         .isBoolean()
 ]);

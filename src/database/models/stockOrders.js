@@ -6,9 +6,8 @@ class StockOrders extends Model {
 
         super.init(
             {
-                //acrescentar id do usuário e id da ação
-                // email: DataTypes.TEXT,
-                // stock_name: DataTypes.STRING,
+                user_id: DataTypes.INTEGER,
+                stock_id: DataTypes.INTEGER,
                 stock_quantity: DataTypes.INTEGER,
                 stock_price: DataTypes.INTEGER
             },   
