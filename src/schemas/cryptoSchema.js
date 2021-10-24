@@ -11,7 +11,7 @@ exports.cryptoSchema = validateDto([
     body('status')
         .default(true)
         .isBoolean()
-]);
+]); 
 
 exports.cryptoOrderSchema = validateDto([
     body('cryptoQuantity')

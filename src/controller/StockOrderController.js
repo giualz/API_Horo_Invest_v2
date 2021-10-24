@@ -34,7 +34,6 @@ module.exports = {
             stock_quantity: stock_quantity,
             stock_price: stock_price,
         })
-        console.log('*********************************************')
     },
 
     async destroyOrder(req, res) {

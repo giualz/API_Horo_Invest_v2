@@ -10,15 +10,17 @@ class CurrencyOrders extends Model {
                 // currency_name: DataTypes.STRING,
                 currency_quantity: DataTypes.INTEGER,
                 currency_price: DataTypes.INTEGER
-            },   
+            },
             {
                 sequelize,
-                tableName: 'orders-currencies'
+                tableName: 'orders-currencies',
+                updatedAt: 'updated_at',
+                createdAt: 'created_at'
             }
         );
     }
 
-    static associate(models){
+    static associate(models) {
         this.belongsToMany(models.Users, {
             foreignKey: 'stock_id',
             through: 'orders-currencies',

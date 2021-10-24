@@ -30,7 +30,7 @@ module.exports = (routes) => {
     //fazer ordem
     routes.post(
         '/cryptos/:id/order',
-        [authenticate, cryptoOrderSchema],
+        [userOnly, cryptoOrderSchema],
         CryptoOrderController.createOrder
     );
 

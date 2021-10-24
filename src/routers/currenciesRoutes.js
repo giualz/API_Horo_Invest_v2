@@ -28,7 +28,7 @@ module.exports = (routes) => {
 
     routes.post(
         '/currencies/:id/order',
-        [authenticate, currencyOrderSchema],
+        [userOnly, currencyOrderSchema],
         CurrencyOrderController.createOrder
     );
 

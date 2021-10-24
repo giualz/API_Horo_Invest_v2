@@ -6,19 +6,21 @@ class CryptoOrders extends Model {
 
         super.init(
             {
-                // email: DataTypes.TEXT,
-                // crypto_name: DataTypes.STRING,
+                user_id: DataTypes.INTEGER,
+                crypto_id: DataTypes.INTEGER,
                 crypto_quantity: DataTypes.INTEGER,
                 crypto_price: DataTypes.INTEGER
-            },   
+            },
             {
                 sequelize,
-                tableName: 'orders-cryptos'
+                tableName: 'orders-cryptos',
+                updatedAt: 'updated_at',
+                createdAt: 'created_at'
             }
         );
     }
 
-    static associate(models){
+    static associate(models) {
         this.belongsToMany(models.Users, {
             foreignKey: 'crypto_id',
             through: 'orders-cryptos',

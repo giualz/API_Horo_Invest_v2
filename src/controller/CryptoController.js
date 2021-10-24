@@ -1,26 +1,25 @@
 const Crypto = require('../database/models/crypto');
-const errorHandler = require('../config/errorHandler');
+// const errorHandler = require('../config/errorHandler');
 
 module.exports = {
     async index(req, res) {
         const cryptos = await Crypto.findAll()
 
-        return res.json(cryptos)
+        return res.json(cryptos) 
     },
 
     async store(req, res) {
-        console.log('CHEGOU AQUI')
-        const data = req.body 
-
-        
+        const data = req.body
 
         try {
-            const create = await Crypto.create(data)
-            console.log('AGORA AQUI')
-            return res.json(create)
+            await Crypto.create(data)
+            return res
+                .status(200)
+                .json('Crypto added')
         } catch (error) {
-            console.log(error)
-            console.log('OU AQUI')
+            return res
+                .status(400)
+                .json('Register failed')
         }
 
     },
@@ -40,7 +39,9 @@ module.exports = {
         })
         // console.log(crypto)
         if (!crypto) {
-            throw new errorHandler(400, `Invalid param ${id}`)
+            return res
+                .status(400)
+                .json(`Invalid param ${id}`)
         }
         return res.json(crypto)
     }

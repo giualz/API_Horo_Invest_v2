@@ -5,8 +5,8 @@ const Stock = require('./models/stock');
 const Crypto = require('./models/crypto');
 const Currency = require('./models/currencies');
 const StockOrders = require('./models/stockOrders');
-const CryptoOrders = require('./models/cryptoOrders');
-const CurrencyOrders = require('./models/currencyOrders'); 
+const CryptoOrders = require('./models/CryptoOrders');
+const CurrencyOrders = require('./models/CurrencyOrders'); 
 const Users = require('./models/user');
 
 //configuração de banco

@@ -1,5 +1,5 @@
 const Stock = require('../database/models/stock');
-const errorHandler = require('../config/errorHandler');
+// const errorHandler = require('../config/errorHandler');
 
 module.exports = {
     async index(req, res) {
@@ -13,10 +13,14 @@ module.exports = {
         const data = req.body
 
         try {
-            const create = await Stock.create(data)
-            return res.json(create)
+            await Stock.create(data)
+            return res
+                .status(200)
+                .json('Stock added')
         } catch (error) {
-            console.log(error)
+            return res
+                .status(400)
+                .json('Register failed')
         }
 
     },
