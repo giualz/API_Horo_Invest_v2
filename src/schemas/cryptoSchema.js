@@ -5,17 +5,19 @@ const { body } = require('express-validator');
 exports.cryptoSchema = validateDto([
     body('crypto_name')
         .notEmpty()
-        .withMessage('Insert crypto name'),
+        .withMessage('Insert crypto name')
+        .isString()
+        .withMessage('Crypto name must be a string'),
     body('status')
-        .notEmpty()
-        .withMessage('Insert status')
-]);
+        .default(true)
+        .isBoolean()
+]); 
 
 exports.cryptoOrderSchema = validateDto([
-    body('crypto_quantity')
+    body('cryptoQuantity')
         .notEmpty()
         .withMessage('Insert quantity'),
-    body('crypto_price')
+    body('cryptoPrice')
         .notEmpty()
         .withMessage('Insert price'),
 ])

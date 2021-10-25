@@ -4,7 +4,7 @@ const CryptoController = require('../controller/CryptoController');
 const CryptoOrderController = require('../controller/CryptoOrderController');
 const authenticate = require('../middlewares/authenticate');
 const adminOnly = require('../middlewares/adminOnly');
-const userOnly = require('../middlewares/userOnly;')
+const userOnly = require('../middlewares/userOnly')
 
 module.exports = (routes) => {
 
@@ -14,23 +14,23 @@ module.exports = (routes) => {
         CryptoController.index
     );
 
-    routes.get(
-        '/cryptos/:id',
-        [authenticate, idParams],
-        CryptoController.show
-    );
+    // routes.get(
+    //     '/cryptos/:id',
+    //     [authenticate, idParams],
+    //     CryptoController.show
+    // );
 
     //adicionar ativo
     routes.post(
-        '/cryptos/:id',
-        [authenticate, cryptoSchema],
+        '/cryptos/store',
+        [adminOnly, cryptoSchema],
         CryptoController.store
     );
 
     //fazer ordem
     routes.post(
         '/cryptos/:id/order',
-        [adminOnly, cryptoOrderSchema],
+        [userOnly, cryptoOrderSchema],
         CryptoOrderController.createOrder
     );
 

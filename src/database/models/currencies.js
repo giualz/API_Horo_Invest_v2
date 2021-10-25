@@ -16,7 +16,7 @@ class Currencies extends Model {
 
   static associate(models) {
     this.belongsToMany(models.Users, {
-      foreignKey: 'id',
+      foreignKey: 'currency_id',
       through: 'orders-currencies',
       as: 'users'
     })

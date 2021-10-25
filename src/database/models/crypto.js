@@ -3,6 +3,7 @@ const { Model, DataTypes } = require('sequelize');
 class Cryptos extends Model {
 
   static init(sequelize) {
+
     super.init({
       crypto_name: DataTypes.STRING,
       status: DataTypes.BOOLEAN
@@ -16,7 +17,7 @@ class Cryptos extends Model {
 
   static associate(models) {
     this.belongsToMany(models.Users, {
-      foreignKey: 'id',
+      foreignKey: 'crypto_id',
       through: 'orders-cryptos',
       as: 'users'
     })

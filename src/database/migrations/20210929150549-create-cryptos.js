@@ -7,7 +7,7 @@ module.exports = {
 
     return queryInterface.createTable(tableName, {
 
-      id: {
+      crypto_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,

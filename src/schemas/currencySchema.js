@@ -5,10 +5,12 @@ const { body } = require('express-validator');
 exports.currencySchema = validateDto([
     body('currency_name')
         .notEmpty()
-        .withMessage('Insert currency name'),
+        .withMessage('Insert currency name')
+        .isString()
+        .withMessage('Currency name must be a string'),
     body('status')
-        .notEmpty()
-        .withMessage('Insert status')
+        .default(true)
+        .isBoolean()
 ]);
 
 exports.currencyOrderSchema = validateDto([

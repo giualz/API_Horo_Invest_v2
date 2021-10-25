@@ -4,7 +4,7 @@ const CurrencyController = require('../controller/CurrencyController');
 const CurrencyOrderController = require('../controller/CurrencyOrderController');
 const authenticate = require('../middlewares/authenticate');
 const adminOnly = require('../middlewares/adminOnly');
-const userOnly = require('../middlewares/userOnly;');
+const userOnly = require('../middlewares/userOnly');
 
 module.exports = (routes) => {
 
@@ -14,21 +14,21 @@ module.exports = (routes) => {
         CurrencyController.index
     );
 
-    routes.get(
-        '/currencies/:id',
-        [authenticate, idParams],
-        CurrencyController.show
-    );
+    // routes.get(
+    //     '/currencies/:id',
+    //     [authenticate, idParams],
+    //     CurrencyController.show
+    // );
 
     routes.post(
-        '/currencies/:id',
-        [authenticate, currencySchema],
+        '/currencies/store',
+        [adminOnly, currencySchema],
         CurrencyController.store
     );
 
     routes.post(
         '/currencies/:id/order',
-        [adminOnly, currencyOrderSchema],
+        [userOnly, currencyOrderSchema],
         CurrencyOrderController.createOrder
     );
 

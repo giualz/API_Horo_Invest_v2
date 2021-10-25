@@ -5,41 +5,37 @@ get para a tabela de usuários
 
 /:user(token)/orders/stocks/:id/delete
 
-1 - AUTH - login
-    * dados no body
-    * email no formato certo 
+1 - AUTH - login OKOKOKOKOK
+    * dados no body OK
+    * email no formato certo
     * email existente na DB
     * senha no formato certo
     * senha de acordo com o banco
     * retornar token caso tudo esteja correto
 
-2 - AUTH - register
+2 - AUTH - register OKOKOKOKOK
     * dados no body
     * dados no formato certo 
-    * conferir se email existe na DB
+    * conferir se email existe na DB   NOOOPE
         *caso exista, redirecionar para a página de login
     * retornar sucesso caso tudo esteja correto
 
 3 - STOCKS
 
-3.1 - get /stocks
-    * request auth
-    * retornar lista de stocks
+3.1 - get /stocks FALTA O MENINO API
+    * request auth OK
+    * retornar lista de stocks OK
 
 // adicional 
-3.2 - get /stocks/:id
-    * request auth
-    * parâmetro como integer
-    * retornar dados do stock
 
-3.3 - post /stocks // tirar id /:id
-    * request auth
-    * request auth admin
+3.2 - post /stocks // tirar id /:id OKOKOKOKOK
+    * request auth OK
+    * request auth admin OK
     * parâmetro como integer
-    * dados no formato adequado
-    * return cadastro de stock
+    * dados no formato adequado OK
+    * return cadastro de stock OK
 
-3.4 - post /stocks/:id/order
+3.3 - post /stocks/:id/order
     * request auth
     * request auth user
     * parâmetro como integer
@@ -47,7 +43,7 @@ get para a tabela de usuários
     * return execução de ordem
 
 // após rota exibindo ordens executadas
-3.5 - delete /stocks/:id/order/:user
+3.4 - delete /stocks/:id/order/:user
     * request auth
     * request auth user
     * 
@@ -55,32 +51,49 @@ get para a tabela de usuários
 
 4 - CRYPTOS
 
-4.1 - get /cryptos
+4.1 - get /cryptos OKOKOKOKOK
     * request auth
     * retornar lista de cryptos
 
-4.2 - get /cryptos/:id
-    * request auth
-    * parâmetro como integer
-    * retornar dados do stock
-
-4.3 - post /cryptos/:id
+4.2 - post /cryptos/store OKOKOKOKOK
     * request auth
     * request auth admin
     * dados no formato adequado
-    * return cadastro de stock
+    * return cadastro de crypto
 
-4.4 - post /cryptos/:id/order
+4.3 - post /cryptos/:id/order
     * request auth
     * request auth user
     * dados no formato adequado
     * return execução de ordem
 
 // após rota exibindo ordens executadas
-4.5 - delete /cryptos/:id/order/:user
+4.4 - delete /cryptos/:id/order/:user
     * request auth
     * request auth user
     * 
     * return delete
 
 5 - CURRENCIES - 
+5.1 - get /currencies OKOKOKOKOK
+    * request auth
+    * retornar lista de cryptos
+
+5.2 - post /currencies/store OKOKOKOKOK
+    * request auth
+    * request auth admin
+    * dados no formato adequado
+    * return cadastro de crypto
+
+5.3 - post /currencies/:id/order
+    * request auth
+    * request auth user
+    * dados no formato adequado
+    * return execução de ordem
+
+// após rota exibindo ordens executadas
+5.4 - delete /currencies/:id/order/:user
+    * request auth
+    * request auth user
+    * 
+    * return delete

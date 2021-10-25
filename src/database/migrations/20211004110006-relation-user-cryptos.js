@@ -11,17 +11,17 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true
       },
-      user: {
+      user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'users', key: 'id' },
+        references: { model: 'users', key: 'user_id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      crypto: {
+      crypto_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'cryptos', key: 'id' },
+        references: { model: 'cryptos', key: 'crypto_id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },

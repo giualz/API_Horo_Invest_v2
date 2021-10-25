@@ -4,28 +4,34 @@ const StockController = require('../controller/StockController');
 const StockOrderController = require('../controller/StockOrderController');
 const authenticate = require('../middlewares/authenticate');
 const adminOnly = require('../middlewares/adminOnly');
-const userOnly = require('../middlewares/userOnly;');
+const userOnly = require('../middlewares/userOnly');
 
 module.exports = (routes) => {
-
+    //listar todas as ações true
+    //devolve valores vindos da api
+    // OK
     routes.get(
         '/stocks',
         [authenticate],
         StockController.index
     );
 
-    routes.get(
-        '/stocks/:id',
-        [authenticate, idParams],
-        StockController.show
-    );
+    //VOLTAR PRA CÁ NO FINAL
+    //puxa ação e valor devolvido pela api
+    // routes.get(
+    //     '/stocks/:id',
+    //     [authenticate, idParams],
+    //     StockController.show
+    // ); 
 
+    //cadastro de stock
     routes.post(
-        '/stocks/:id',
+        '/stocks/store',
         [adminOnly, stockSchema],
         StockController.store
     );
 
+    //esperar array
     routes.post(
         '/stocks/:id/order',
         [userOnly, stockOrderSchema],

@@ -1,11 +1,11 @@
 const AuthController = require('../controller/AuthController')
-const { loginSchema, registerSchema } = require('../schemas/authSchema')
+const { authSchema, registerSchema } = require('../schemas/authSchema')
 
 module.exports = (routes) => {
 
     routes.post(
         '/login',
-        [loginSchema],
+        [authSchema],
         AuthController.login
     );
 

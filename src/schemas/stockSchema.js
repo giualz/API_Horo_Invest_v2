@@ -5,10 +5,12 @@ const { body } = require('express-validator');
 exports.stockSchema = validateDto([
     body('stock_name')
         .notEmpty()
-        .withMessage('Insert stock name'),
+        .withMessage('Insert stock name')
+        .isString()
+        .withMessage('Currency name must be a string'),
     body('status')
-        .notEmpty()
-        .withMessage('Insert status')
+        .default(true)
+        .isBoolean()
 ]);
 
 exports.stockOrderSchema = validateDto([

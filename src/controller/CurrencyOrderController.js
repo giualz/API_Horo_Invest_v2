@@ -4,10 +4,14 @@ module.exports = {
 
     //CHECK AFTER LOGIN
     async createOrder(req, res) {
-        const { id } = req.params;
-        const { currency_quantity, currency_price } = req.body;
+        const { id: currency_id } = req.params;
+        const { id: user_id,
+            currencyQuantity: currency_quantity,
+            currencyPrice: currency_price } = req.body;
 
         const order = await CurrencyOrders.create({
+            user_id,
+            currency_id,
             currency_quantity,
             currency_price,
         })
