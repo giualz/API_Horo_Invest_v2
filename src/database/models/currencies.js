@@ -1,3 +1,6 @@
+
+//YET TO BE IMPLEMENTED
+
 const { Model, DataTypes } = require('sequelize');
 
 class Currencies extends Model {
