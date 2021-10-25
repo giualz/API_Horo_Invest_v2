@@ -14,16 +14,15 @@ module.exports = {
                 const { id, crypto_name, status } = crypto.dataValues
 
                 const cryptoObject = await cryptoApi.getCryptosApi(crypto_name)
-                console.log('aqui tambem');
+                
                 return {
                     id,
                     cryptoName: crypto_name,
-                    cryptoPrice: cryptoObject.cryptoPrice,
-                    cryptoPriceBefore: cryptoObject.cryptoPriceBefore,
+                    cryptoPrice: cryptoObject.cryptoPrice[crypto_name]['USD'],
+                    cryptoPriceBefore: cryptoObject.cryptoPriceBefore[crypto_name]['USD'],
                     status
                 }
             }));
-            console.log('🚀 ~ returnCryptosWithPrices', returnCryptosWithPrices)
 
             return res.send(returnCryptosWithPrices)
 
