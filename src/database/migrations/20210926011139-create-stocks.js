@@ -7,7 +7,7 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     //norteia como vai ser o db
     return queryInterface.createTable(tableName, {
-      stock_id: {
+      id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,

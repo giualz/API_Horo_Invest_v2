@@ -46,19 +46,22 @@ module.exports = {
     async register(req, res) {
 
         const payload = req.body
+        console.log(req.body)
         payload.user_type = 2
-        payload.status = false
+        payload.status = true
         const passwordHash = await generateHash(payload.password)
         console.log(passwordHash)
         try {
+            
             await User.create({ ...payload, password: passwordHash })
             return res
                 .status(200)
                 .json('User registered')
         } catch(error) {
-            return res
-                .status(400)
-                .json('Register failed')
+            throw error
+            // return res
+            //     .status(400)
+            //     .json('Register failed')
         }
     }
 }
