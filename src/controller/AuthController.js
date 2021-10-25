@@ -24,7 +24,7 @@ module.exports = {
         if (!(await bcrypt.compare(password, user.password))) {
             return res
                 .status(400)
-                .json('Wrong pasword')
+                .json('Wrong password')
         }
 
         if (!user.status) {
@@ -45,22 +45,24 @@ module.exports = {
 
     async register(req, res) {
 
-        const payload = req.body        
+        const payload = req.body
+        console.log(req.body)
         payload.user_type = 2
-        payload.status = false
+        payload.status = true
         const passwordHash = await generateHash(payload.password)
 
         try {
+            
             await User.create({ ...payload, password: passwordHash })
             console.log('chegou aqui');
             return res
                 .status(200)
                 .json('User registered')
         } catch(error) {
+            throw error
             // return res
             //     .status(400)
             //     .json('Register failed')
-            console.log(error);
         }
     }
 }

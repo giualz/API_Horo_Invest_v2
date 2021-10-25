@@ -1,3 +1,6 @@
+
+//YET TO BE IMPLEMENTED
+
 'use strict';
 
 const tableName = 'currencies'
@@ -7,7 +10,7 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
 
     return queryInterface.createTable(tableName, {
-      currency_id: {
+      id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         autoIncrement: true,

@@ -23,7 +23,7 @@ const { Model, DataTypes } = require('sequelize');
     static associate(models) {
       this.belongsToMany(models.Stocks, {
         //user_id vai estar na tabela de relação
-        foreignKey: 'user_id',
+        foreignKey: 'id',
         through: 'orders-stocks',
         as: 'stocks'
       })
@@ -31,7 +31,7 @@ const { Model, DataTypes } = require('sequelize');
 
     static associate(models) {
       this.belongsToMany(models.Currencies, {
-        foreignKey: 'user_id',
+        foreignKey: 'id',
         through: 'orders-currencies',
         as: 'currencies'
       })
@@ -39,7 +39,7 @@ const { Model, DataTypes } = require('sequelize');
 
     static associate(models) {
       this.belongsToMany(models.Cryptos, {
-        foreignKey: 'user_id',
+        foreignKey: 'id',
         through: 'orders-cryptos',
         as: 'cryptos'
       })

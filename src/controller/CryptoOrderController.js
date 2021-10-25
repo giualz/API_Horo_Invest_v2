@@ -8,7 +8,7 @@ module.exports = {
     async createOrder(req, res) {
         const { id: crypto_id } = req.params;
         const { authorization } = req.headers;
-
+ 
         const token = authorization.split(' ')[1]
         const {
             id: user_id,
@@ -20,23 +20,26 @@ module.exports = {
                 .status(400)
                 .json('Orders may only be sent by users')
         }
-
+        
         const {
             cryptoQuantity: crypto_quantity,
             cryptoPrice: crypto_price
         } = req.body;
 
         try {
+
             await CryptoOrders.create({
                 user_id,
-                crypto_id,
+                crypto_id: Number(crypto_id),
                 crypto_quantity,
                 crypto_price,
             })
+
             return res
                 .status(200)
                 .json('Order created')
         } catch (error) {
+            console.log(error)
             return res
                 .status(400)
                 .json('Order failed')
