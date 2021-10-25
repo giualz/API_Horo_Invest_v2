@@ -1,3 +1,6 @@
+
+//YET TO BE IMPLEMENTED
+
 'use strict';
 
 // const { SequelizeScopeError } = require('sequelize/types');
@@ -14,14 +17,14 @@ module.exports = {
       user_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'users', key: 'user_id' },
+        references: { model: 'users', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
       currency_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: { model: 'currencies', key: 'currency_id' },
+        references: { model: 'currencies', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
