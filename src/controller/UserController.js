@@ -7,7 +7,7 @@ module.exports = {
         return res.json(users)
     }, 
 
-    async userUpdate(req, res) {
+    // async userUpdate(req, res) {
         // const params = req.params
         // const user = await User.findOne({
         //     where: {
@@ -15,5 +15,5 @@ module.exports = {
         //         password:
         //     }
         // })
-    }
+    // }
 }

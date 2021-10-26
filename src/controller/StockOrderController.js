@@ -1,51 +1,81 @@
+const jwt = require('jsonwebtoken');
 const StockOrders = require('../database/models/StockOrders');
-const User = require('../database/models/user')
-const { generateHash, generateToken } = require('../utils/helper');
 
 module.exports = {
 
     //CHECK AFTER LOGIN
     async createOrder(req, res) {
+
+        
         const { id: stock_id } = req.params;
         const { authorization } = req.headers;
-        console.log(req.body)
-        console.log(req.headers)
-      
+ 
+        const token = authorization.split(' ')[1]
+        const {
+            id: user_id,
+            user_type
+        } = jwt.decode(token)
+
+        if (user_type !== 2) {
+            return res
+                .status(400)
+                .json('Orders may only be sent by users')
+        }
+        
         const {
             stockQuantity: stock_quantity,
-            stockPrice: stock_price 
+            stockPrice: stock_price
         } = req.body;
-        
-        
-        //vai no db, peag as infos do usuario com aquele email,pega o id e faz a ordem
-        const user = await User.findOne({
-            where: {
-                id: user_type = 2
-            }
-        })
-// if (!(await bcrypt.compare(user_id, user.user_id))) {
-//             throw new errorHandler(400, 'Invalid user')
-//         }
-        console.log(user)
 
-        const order = await StockOrders.create({
-            user_id: user_id,
-            stock_id: stock_id,
-            stock_quantity: stock_quantity,
-            stock_price: stock_price,
-        })
+        try {
+            
+            await StockOrders.create({ 
+                user_id,
+                stock_id: Number(stock_id),
+                stock_quantity,
+                stock_price: Number(stock_price),
+            })
+
+            return res
+                .status(200)
+                .json('Order created')
+        } catch (error) {
+            console.log(error)
+            return res
+                .status(400)
+                .json('Order failed')
+        }
     },
 
     async destroyOrder(req, res) {
-        const params = req.params
-        const order = await StockOrders.findOne({
-            where: {
-                user: parseInt(params.user_id),
-                stock: parseInt(params.id)
-            }
-        })
 
+        const { id } = req.params;
+        const { authorization } = req.headers;
+ 
+        const token = authorization.split(' ')[1]
+        const {
+            // id: user_id,
+            user_type
+        } = jwt.decode(token)
+        
+        if (user_type !== 2) {
+            return res
+                .status(400)
+                .json('Deletion may only be done by users')
+        }
+        
+        try{ const order = await StockOrders.findOne({
+            where: {
+                id: id,
+            }})
         order.destroy()
         res.json('order excluded')
-    }
-}
+
+    
+    } catch(error){ 
+
+        return res
+        .status(400)
+        .json("Deletion failed")
+        
+}}}

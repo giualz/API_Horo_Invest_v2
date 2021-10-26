@@ -26,11 +26,11 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       stock_quantity: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DECIMAL(10,2),
         allowNull: false
       },
       stock_price: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.DECIMAL(10,2),
         allowNull: false
       },
       created_at: {

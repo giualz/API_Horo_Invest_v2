@@ -24,7 +24,7 @@ module.exports = (routes) => {
     routes.post(
         '/cryptos/store',
         [adminOnly, cryptoSchema],
-        CryptoController.store
+        CryptoController.store 
     );
 
     //fazer ordem
@@ -34,8 +34,9 @@ module.exports = (routes) => {
         CryptoOrderController.createOrder
     );
 
+    //id da ordem
     routes.delete(
-        '/:user/orders/cryptos/:id/delete',
+        '/user/orders/cryptos/:id/delete',
         [userOnly, idParams],
         CryptoOrderController.destroyOrder
     );

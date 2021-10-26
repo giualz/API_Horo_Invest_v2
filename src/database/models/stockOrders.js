@@ -8,8 +8,8 @@ class StockOrders extends Model {
             {
                 user_id: DataTypes.INTEGER,
                 stock_id: DataTypes.INTEGER,
-                stock_quantity: DataTypes.INTEGER,
-                stock_price: DataTypes.INTEGER
+                stock_quantity: DataTypes.DECIMAL(10,2),
+                stock_price: DataTypes.DECIMAL(10,2)
             },
             {
                 sequelize,

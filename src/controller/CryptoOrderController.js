@@ -1,11 +1,12 @@
 const jwt = require('jsonwebtoken');
 const CryptoOrders = require('../database/models/CryptoOrders');
-// const errorHandler = require('../config/errorHandler');
 
 module.exports = {
 
     //CHECK AFTER LOGIN
     async createOrder(req, res) {
+
+        
         const { id: crypto_id } = req.params;
         const { authorization } = req.headers;
  
@@ -27,12 +28,12 @@ module.exports = {
         } = req.body;
 
         try {
-
-            await CryptoOrders.create({
+            
+            await CryptoOrders.create({ 
                 user_id,
                 crypto_id: Number(crypto_id),
                 crypto_quantity,
-                crypto_price,
+                crypto_price: Number(crypto_price),
             })
 
             return res
@@ -47,15 +48,33 @@ module.exports = {
     },
 
     async destroyOrder(req, res) {
-        const params = req.params;
-        const order = await CryptoOrders.findOne({
-            where: {
-                user: parseInt(params.user_id),
-                crypto: parseInt(params.id)
-            }
-        });
 
-        order.destroy();
+        const { id } = req.params;
+        const { authorization } = req.headers;
+ 
+        const token = authorization.split(' ')[1]
+        const {
+            // id: user_id,
+            user_type
+        } = jwt.decode(token)
+        
+        if (user_type !== 2) {
+            return res
+                .status(400)
+                .json('Deletion may only be done by users')
+        }
+        
+        try{ const order = await CryptoOrders.findOne({
+            where: {
+                id: id,
+            }})
+        order.destroy()
         res.json('order excluded')
+
+    
+    } catch(error){ 
+
+        throw error
     }
-}
+        
+}}

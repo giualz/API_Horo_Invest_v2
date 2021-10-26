@@ -11,8 +11,8 @@ class CurrencyOrders extends Model {
             {
                 // email: DataTypes.TEXT,
                 // currency_name: DataTypes.STRING,
-                currency_quantity: DataTypes.INTEGER,
-                currency_price: DataTypes.INTEGER
+                currency_quantity: DataTypes.DECIMAL(10,2),
+                currency_price: DataTypes.DECIMAL(10,2)
             },
             {
                 sequelize,

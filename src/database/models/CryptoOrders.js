@@ -8,8 +8,8 @@ class CryptoOrders extends Model {
             {
                 user_id: DataTypes.INTEGER,
                 crypto_id: DataTypes.INTEGER,
-                crypto_quantity: DataTypes.INTEGER,
-                crypto_price: DataTypes.INTEGER
+                crypto_quantity: DataTypes.DECIMAL(10,2),
+                crypto_price: DataTypes.DECIMAL(10,2)
             },
             {
                 sequelize,
