@@ -18,7 +18,7 @@ module.exports = {
 
         if (user_type !== 2) {
             return res
-                .status(400)
+                .status(401)
                 .json('Orders may only be sent by users')
         }
         
@@ -32,13 +32,14 @@ module.exports = {
             await CryptoOrders.create({ 
                 user_id,
                 crypto_id: Number(crypto_id),
-                crypto_quantity,
+                crypto_quantity: Number(crypto_quantity),
                 crypto_price: Number(crypto_price),
             })
 
             return res
-                .status(200)
+                .status(201)
                 .json('Order created')
+                
         } catch (error) {
             console.log(error)
             return res
@@ -60,7 +61,7 @@ module.exports = {
         
         if (user_type !== 2) {
             return res
-                .status(400)
+                .status(401)
                 .json('Deletion may only be done by users')
         }
         
@@ -69,7 +70,7 @@ module.exports = {
                 id: id,
             }})
         order.destroy()
-        res.json('order excluded')
+        res.status(200).json('order excluded')
 
     
     } catch(error){ 

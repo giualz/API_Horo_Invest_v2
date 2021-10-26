@@ -22,14 +22,15 @@ module.exports = (req, res, next) => {
     }
 
     jwt.verify(token, secret_key, (err, data) => {
-        console.log('#################################')
+
         if (err) {
             return res.status(401).json('Invalid token')
         }
         
         if(data.user_type !== 2) {
             return res.status(401).json({error: 'Unauthorized'})
-        }
+        }  
+
         next()
     })
 }

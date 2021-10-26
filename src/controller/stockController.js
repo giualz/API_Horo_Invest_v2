@@ -30,7 +30,7 @@ module.exports = {
         try {
             await Stock.create(data)
             return res
-                .status(200)
+                .status(201)
                 .json('Stock added')
         } catch (error) {
             return res

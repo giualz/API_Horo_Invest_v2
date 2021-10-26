@@ -37,7 +37,7 @@ module.exports = {
         try {
             await Crypto.create(data)
             return res
-                .status(200)
+                .status(201)
                 .json('Crypto added')
         } catch (error) {
             return res

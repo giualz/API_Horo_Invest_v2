@@ -56,7 +56,7 @@ module.exports = {
             await User.create({ ...payload, password: passwordHash })
             console.log('chegou aqui');
             return res
-                .status(200)
+                .status(201)
                 .json('User registered')
         } catch(error) {
             throw error

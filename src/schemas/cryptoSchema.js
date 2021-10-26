@@ -14,10 +14,10 @@ exports.cryptoSchema = validateDto([
 ]); 
 
 exports.cryptoOrderSchema = validateDto([
-    body('cryptoQuantity')
+    body('crypto_quantity')
         .notEmpty()
         .withMessage('Insert quantity'),
-    body('cryptoPrice')
+    body('crypto_price')
         .notEmpty()
         .withMessage('Insert price'),
 ])

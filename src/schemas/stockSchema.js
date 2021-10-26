@@ -3,17 +3,17 @@ const { body } = require('express-validator');
 
 //array (cada item é um middleware) e injeta os erros
 exports.stockSchema = validateDto([
-    body('stock_name')
+    body('stock_name') 
         .notEmpty()
         .withMessage('Insert stock name')
         .isString()
-        .withMessage('Currency name must be a string'),
+        .withMessage('Stock name must be a string'),
     body('status')
         .default(true)
         .isBoolean()
 ]);
 
-exports.stockOrderSchema = validateDto([
+exports.stockOrderSchema = validateDto([    
     body('stock_quantity')
         .notEmpty()
         .withMessage('Insert quantity'),

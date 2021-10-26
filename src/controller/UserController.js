@@ -4,7 +4,7 @@ module.exports = {
     async index(req, res) {
         const users = await User.findAll()
 
-        return res.json(users)
+        return res.status(200).json(users)
     }, 
 
     // async userUpdate(req, res) {

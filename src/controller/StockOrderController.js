@@ -15,7 +15,7 @@ module.exports = {
             id: user_id,
             user_type
         } = jwt.decode(token)
-
+console.log("BITCH GOT HEREEEEEEEEEEEEE")
         if (user_type !== 2) {
             return res
                 .status(400)
@@ -32,7 +32,7 @@ module.exports = {
             await StockOrders.create({ 
                 user_id,
                 stock_id: Number(stock_id),
-                stock_quantity,
+                stock_quantity: Number(stock_quantity),
                 stock_price: Number(stock_price),
             })
 
@@ -40,7 +40,6 @@ module.exports = {
                 .status(200)
                 .json('Order created')
         } catch (error) {
-            console.log(error)
             return res
                 .status(400)
                 .json('Order failed')
