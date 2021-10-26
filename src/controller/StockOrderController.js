@@ -18,7 +18,7 @@ module.exports = {
 console.log("BITCH GOT HEREEEEEEEEEEEEE")
         if (user_type !== 2) {
             return res
-                .status(400)
+                .status(401)
                 .json('Orders may only be sent by users')
         }
         
@@ -37,7 +37,7 @@ console.log("BITCH GOT HEREEEEEEEEEEEEE")
             })
 
             return res
-                .status(200)
+                .status(201)
                 .json('Order created')
         } catch (error) {
             return res
@@ -59,7 +59,7 @@ console.log("BITCH GOT HEREEEEEEEEEEEEE")
         
         if (user_type !== 2) {
             return res
-                .status(400)
+                .status(401)
                 .json('Deletion may only be done by users')
         }
         
@@ -68,7 +68,7 @@ console.log("BITCH GOT HEREEEEEEEEEEEEE")
                 id: id,
             }})
         order.destroy()
-        res.json('order excluded')
+        res.status(200).json('order excluded')
 
     
     } catch(error){ 
