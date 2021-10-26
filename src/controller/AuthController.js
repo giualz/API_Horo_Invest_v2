@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 module.exports = {
 
     async login(req, res) {
-
+        
         const { email, password } = req.body
         const user = await User.findOne({
             attributes: {
@@ -37,9 +37,9 @@ module.exports = {
             id: user.id, name: user.name, email: user.email,
             user_type: user.user_type, status: user.status
         }
-
+        
         const token = generateToken(payloadToken)
-
+        
         return res.json({ ...token })
     },
 
@@ -50,10 +50,11 @@ module.exports = {
         payload.user_type = 2
         payload.status = true
         const passwordHash = await generateHash(payload.password)
-        console.log(passwordHash)
+
         try {
             
             await User.create({ ...payload, password: passwordHash })
+            console.log('chegou aqui');
             return res
                 .status(200)
                 .json('User registered')

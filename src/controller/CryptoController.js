@@ -1,11 +1,34 @@
 const Crypto = require('../database/models/crypto');
+const cryptoApi = require('../services/cryptoApi')
 // const errorHandler = require('../config/errorHandler');
 
 module.exports = {
-    async index(req, res) {
-        const cryptos = await Crypto.findAll()
 
-        return res.json(cryptos) 
+    async index(req, res) {
+        try {
+
+            const cryptos = await Crypto.findAll({})
+
+            const returnCryptosWithPrices = await Promise.all(cryptos.map(async crypto => {
+            
+                const { id, crypto_name, status } = crypto.dataValues
+
+                const cryptoObject = await cryptoApi.getCryptosApi(crypto_name)
+                
+                return {
+                    id,
+                    cryptoName: crypto_name,
+                    cryptoPrice: cryptoObject.cryptoPrice[crypto_name]['USD'],
+                    cryptoPriceBefore: cryptoObject.cryptoPriceBefore[crypto_name]['USD'],
+                    status
+                }
+            }));
+
+            return res.status(200).json(returnCryptosWithPrices)
+
+        } catch (error) {
+            throw error;
+        }
     },
 
     async store(req, res) {
