@@ -1,12 +1,27 @@
 const Stock = require('../database/models/stock');
+const stocksApi = require('../services/stocksApi')
 // const errorHandler = require('../config/errorHandler');
 
 module.exports = {
     async index(req, res) {
-        //integrar com api
+
         const stocks = await Stock.findAll()
 
-        return res.json(stocks)
+        const returnAllStocks = await Promise.all(stocks.map(async stock => {
+
+            const { id, stock_name } = stock
+
+            const stockDataObject = await stocksApi.getStocksApi(stock_name)
+
+            return {
+                id,
+                stockName: stock_name,
+                stockPrice: stockDataObject.stockPrice,
+                stockPriceBefore: stockDataObject.stockPriceBefore
+            }
+        }))
+
+        return res.status(200).json(returnAllStocks)
     },
 
     async store(req, res) {

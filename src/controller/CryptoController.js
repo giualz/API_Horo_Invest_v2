@@ -24,7 +24,7 @@ module.exports = {
                 }
             }));
 
-            return res.send(returnCryptosWithPrices)
+            return res.status(200).json(returnCryptosWithPrices)
 
         } catch (error) {
             throw error;
