@@ -1,49 +1,48 @@
 const { Model, DataTypes } = require('sequelize');
 
-  class Users extends Model {
+class Users extends Model {
 
-    static init(sequelize) {
-      super.init(
-        {
-          name: DataTypes.STRING,
-          email: DataTypes.TEXT, 
-          password: DataTypes.STRING,
-          user_type: DataTypes.INTEGER,
-          status: DataTypes.BOOLEAN
-        },
-        {
-          sequelize,
-          tableName: 'users',
-          updatedAt: 'updated_at',
-          createdAt: 'created_at'
-        }
-      );
-    }
+  static init(sequelize) {
+    super.init(
+      {
+        name: DataTypes.STRING,
+        email: DataTypes.TEXT,
+        password: DataTypes.STRING,
+        user_type: DataTypes.INTEGER,
+        status: DataTypes.BOOLEAN
+      },
+      {
+        sequelize,
+        tableName: 'users',
+        updatedAt: 'updated_at',
+        createdAt: 'created_at'
+      }
+    )
+  }
 
-    static associate(models) {
-      this.belongsToMany(models.Stocks, {
-        //user_id vai estar na tabela de relação
-        foreignKey: 'id',
-        through: 'orders-stocks',
-        as: 'stocks'
-      })
-    }
+  static associate(models) {
+    this.belongsToMany(models.Stocks, {
+      foreignKey: 'id',
+      through: 'orders-stocks',
+      as: 'stocks'
+    })
+  }
 
-    static associate(models) {
-      this.belongsToMany(models.Currencies, {
-        foreignKey: 'id',
-        through: 'orders-currencies',
-        as: 'currencies'
-      })
-    }
+  static associate(models) {
+    this.belongsToMany(models.Currencies, {
+      foreignKey: 'id',
+      through: 'orders-currencies',
+      as: 'currencies'
+    })
+  }
 
-    static associate(models) {
-      this.belongsToMany(models.Cryptos, {
-        foreignKey: 'id',
-        through: 'orders-cryptos',
-        as: 'cryptos'
-      })
-    }
-  };
+  static associate(models) {
+    this.belongsToMany(models.Cryptos, {
+      foreignKey: 'id',
+      through: 'orders-cryptos',
+      as: 'cryptos'
+    })
+  }
+};
 
 module.exports = Users

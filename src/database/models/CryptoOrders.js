@@ -8,8 +8,8 @@ class CryptoOrders extends Model {
             {
                 user_id: DataTypes.INTEGER,
                 crypto_id: DataTypes.INTEGER,
-                crypto_quantity: DataTypes.DECIMAL(10,2),
-                crypto_price: DataTypes.DECIMAL(10,2)
+                crypto_quantity: DataTypes.DECIMAL(10, 2),
+                crypto_price: DataTypes.DECIMAL(10, 2)
             },
             {
                 sequelize,
@@ -17,7 +17,7 @@ class CryptoOrders extends Model {
                 updatedAt: 'updated_at',
                 createdAt: 'created_at'
             }
-        );
+        )
     }
 
     static associate(models) {
