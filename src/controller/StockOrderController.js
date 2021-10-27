@@ -23,8 +23,8 @@ module.exports = {
         }
         
         const {
-            stockQuantity: stock_quantity,
-            stockPrice: stock_price
+            stock_quantity,
+            stock_price
         } = req.body;
 
         try {
