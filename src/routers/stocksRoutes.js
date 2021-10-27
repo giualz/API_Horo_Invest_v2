@@ -16,13 +16,11 @@ module.exports = (routes) => {
         StockController.index
     );
 
-    //VOLTAR PRA CÁ NO FINAL
-    //puxa ação e valor devolvido pela api
-    // routes.get(
-    //     '/stocks/:id',
-    //     [authenticate, idParams],
-    //     StockController.show
-    // ); 
+    routes.get(
+        '/stocks/:id',
+        [userOnly, idParams],
+        StockOrderController.show
+    ); 
 
     //cadastro de stock
     routes.post(

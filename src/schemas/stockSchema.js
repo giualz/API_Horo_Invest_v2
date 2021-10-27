@@ -16,7 +16,7 @@ exports.stockSchema = validateDto([
 exports.stockOrderSchema = validateDto([    
     body('stock_quantity')
         .notEmpty()
-        .withMessage('Insert quantity'),
+        .withMessage('Insert quantity'), 
     body('stock_price')
         .notEmpty()
         .withMessage('Insert price'),
