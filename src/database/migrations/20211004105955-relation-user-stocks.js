@@ -18,7 +18,7 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      stock_id: { 
+      stock_id: {  
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: 'stocks', key: 'id' },

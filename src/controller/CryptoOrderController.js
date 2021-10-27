@@ -29,13 +29,13 @@ module.exports = {
 
         try {
             
-            await CryptoOrders.create({ 
+            await CryptoOrders.create({  
                 user_id,
                 crypto_id: Number(crypto_id),
                 crypto_quantity: Number(crypto_quantity),
                 crypto_price: Number(crypto_price),
             })
-
+ 
             return res
                 .status(201)
                 .json('Order created')

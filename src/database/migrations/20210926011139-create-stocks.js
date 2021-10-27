@@ -3,10 +3,10 @@
 const tableName = 'stocks'
 
 module.exports = {
-  
   up: async (queryInterface, Sequelize) => {
-    //norteia como vai ser o db
+
     return queryInterface.createTable(tableName, {
+
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -29,12 +29,10 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false
       }
-    })
+    });
   },
 
   down: async (queryInterface, Sequelize) => {
-
     return queryInterface.dropTable(tableName);
-
   }
-};
+}

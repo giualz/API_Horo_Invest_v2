@@ -10,13 +10,13 @@ class Cryptos extends Model {
     }, {
       sequelize,
       tableName: 'cryptos',
-      updatedAt: 'updated_at',
+      updatedAt: 'updated_at', 
       createdAt: 'created_at'
     });
   }
 
   static associate(models) {
-    this.belongsToMany(models.Users, {
+    this.belongsToMany(models.Users, { 
       foreignKey: 'crypto_id',
       through: 'orders-cryptos',
       as: 'users'

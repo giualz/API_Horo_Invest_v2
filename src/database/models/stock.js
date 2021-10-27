@@ -9,29 +9,24 @@ class Stocks extends Model {
         // recebe dois métodos: valor padrão da tabela e valor de conexão
         //características e informações hierárquicas
         // as informações da migration não precisam ser repetidas no model
-        super.init(
-            {
-                stock_name: DataTypes.STRING,
-                status: DataTypes.BOOLEAN
-            },
-            //objeto de configuração           
-            {
-                sequelize,
-                tableName: 'stocks',
-                updatedAt: 'updated_at',
-                createdAt: 'created_at'
-
-            }
-        );
-    }
-
-    static associate(models) {
-        this.belongsToMany(models.Users, {
+        super.init({
+            stock_name: DataTypes.STRING,
+            status: DataTypes.BOOLEAN
+          }, {
+            sequelize,
+            tableName: 'stocks',
+            updatedAt: 'updated_at', 
+            createdAt: 'created_at'
+          });
+        }
+      
+        static associate(models) {
+          this.belongsToMany(models.Users, { 
             foreignKey: 'stock_id',
-            through: 'orders-stocks', 
+            through: 'orders-stocks',
             as: 'users'
-        })
-    }
-}
-
-module.exports = Stocks
+          })
+        }
+      }
+      
+      module.exports = Stocks

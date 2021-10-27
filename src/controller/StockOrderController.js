@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const StockOrders = require('../database/models/StockOrders');
+const StockOrders = require('../database/models/stockOrders');
 
 module.exports = {
 
@@ -15,7 +15,7 @@ module.exports = {
             id: user_id,
             user_type
         } = jwt.decode(token)
-console.log("BITCH GOT HEREEEEEEEEEEEEE")
+
         if (user_type !== 2) {
             return res
                 .status(401)
@@ -29,17 +29,19 @@ console.log("BITCH GOT HEREEEEEEEEEEEEE")
 
         try {
             
-            await StockOrders.create({ 
+            await StockOrders.create({  
                 user_id,
                 stock_id: Number(stock_id),
                 stock_quantity: Number(stock_quantity),
                 stock_price: Number(stock_price),
             })
-
+ 
             return res
                 .status(201)
                 .json('Order created')
+                
         } catch (error) {
+            console.log(error)
             return res
                 .status(400)
                 .json('Order failed')
@@ -73,8 +75,7 @@ console.log("BITCH GOT HEREEEEEEEEEEEEE")
     
     } catch(error){ 
 
-        return res
-        .status(400)
-        .json("Deletion failed")
+        throw error
+    }
         
-}}}
+}}
