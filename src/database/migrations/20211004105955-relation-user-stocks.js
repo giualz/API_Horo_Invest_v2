@@ -1,7 +1,5 @@
 'use strict';
 
-// const { SequelizeScopeError } = require('sequelize/types');
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     return queryInterface.createTable('orders-stocks', {
@@ -18,7 +16,7 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
       },
-      stock_id: {  
+      stock_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: { model: 'stocks', key: 'id' },
@@ -26,11 +24,11 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       stock_quantity: {
-        type: Sequelize.DECIMAL(10,2),
+        type: Sequelize.DECIMAL(10, 2),
         allowNull: false
       },
       stock_price: {
-        type: Sequelize.DECIMAL(10,2),
+        type: Sequelize.DECIMAL(10, 2),
         allowNull: false
       },
       created_at: {
@@ -47,6 +45,5 @@ module.exports = {
   down: async (queryInterface) => {
 
     return queryInterface.dropTable('orders-stocks');
-
   }
 };
