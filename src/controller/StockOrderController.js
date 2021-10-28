@@ -74,7 +74,6 @@ module.exports = {
 
         const token = authorization.split(' ')[1];
         const {
-            id: user_id,
             user_type
         } = jwt.decode(token);
 
@@ -87,14 +86,14 @@ module.exports = {
         try {
             const order = await StockOrders.findOne({
                 where: {
-                    stock_id: id,
+                    id: id,
                 }
-            });
+            })
             order.destroy();
-            res.status(200).json('order excluded')
+            res.status(200).json('Order excluded')
 
         } catch (error) {
-            throw error
+
             res.status(400).json('Order could not be excluded')
         }
     }
