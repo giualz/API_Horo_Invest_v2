@@ -4,7 +4,11 @@ const CryptoOrders = require('../database/models/CryptoOrders');
 module.exports = {
 
     async show(req, res) {
-        const { id } = req.params;
+        
+        const { authorization } = req.headers;
+
+        const token = authorization.split(' ')[1];
+        const { id } = jwt.decode(token);
 
         try {
             const cryptosList = await CryptoOrders.findAll({
