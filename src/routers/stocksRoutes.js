@@ -15,8 +15,8 @@ module.exports = (routes) => {
     );
 
     routes.get(
-        '/stocks/:id',
-        [userOnly, idParams],
+        '/stocks/orders',
+        [userOnly],
         StockOrderController.show
     );
 

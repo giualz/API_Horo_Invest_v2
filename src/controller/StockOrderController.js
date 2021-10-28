@@ -4,7 +4,10 @@ const StockOrders = require('../database/models/stockOrders');
 module.exports = {
 
     async show(req, res) {
-        const { id } = req.params;
+        const { authorization } = req.headers;
+
+        const token = authorization.split(' ')[1];
+        const { id } = jwt.decode(token);
 
         try {
             const stocksList = await StockOrders.findAll({

@@ -14,6 +14,12 @@ module.exports = (routes) => {
         CryptoController.index
     );
 
+    routes.get(
+        '/cryptos/orders',
+        [userOnly],
+        CryptoOrderController.show
+    );
+
     routes.post(
         '/cryptos/store',
         [adminOnly, cryptoSchema],
