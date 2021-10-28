@@ -1,9 +1,9 @@
 const express = require('express');
-const authRoutes = require('./authRoutes')
+const authRoutes = require('./authRoutes');
 const cryptosRoutes = require('./cryptosRoutes');
 const currenciesRoutes = require('./currenciesRoutes');
-const stocksRoutes = require('./stocksRoutes')
-const userRoutes = require('./userRoutes')
+const stocksRoutes = require('./stocksRoutes');
+const userRoutes = require('./userRoutes');
 
 const routes = express.Router();
 
@@ -19,6 +19,6 @@ module.exports = (app) => {
 
     stocksRoutes(routes);
 
-    userRoutes(routes)
+    userRoutes(routes);
 
 }

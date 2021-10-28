@@ -7,9 +7,7 @@ const adminOnly = require('../middlewares/adminOnly');
 const userOnly = require('../middlewares/userOnly');
 
 module.exports = (routes) => {
-    //listar todas as ações true
-    //devolve valores vindos da api
-    // OK
+
     routes.get(
         '/stocks',
         [authenticate],
@@ -20,28 +18,23 @@ module.exports = (routes) => {
         '/stocks/:id',
         [userOnly, idParams],
         StockOrderController.show
-    ); 
+    );
 
-    //cadastro de stock
     routes.post(
         '/stocks/store',
         [adminOnly, stockSchema],
         StockController.store
     );
 
-    //esperar array
     routes.post(
         '/stocks/:id/order',
         [userOnly, stockOrderSchema],
         StockOrderController.createOrder
     );
 
-    //from relation - user
-    //:user = token
     routes.delete(
         '/user/orders/stocks/:id/delete',
         [userOnly, idParams],
         StockOrderController.destroyOrder
     );
-
 }

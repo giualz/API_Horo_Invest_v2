@@ -17,12 +17,6 @@ module.exports = (routes) => {
         CurrencyController.index
     );
 
-    // routes.get(
-    //     '/currencies/:id',
-    //     [authenticate, idParams],
-    //     CurrencyController.show
-    // );
-
     routes.post(
         '/currencies/store',
         [adminOnly, currencySchema],
@@ -40,5 +34,4 @@ module.exports = (routes) => {
         [userOnly, idParams],
         CurrencyOrderController.destroyOrder
     );
-
 }
