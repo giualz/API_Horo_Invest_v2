@@ -46,7 +46,7 @@ module.exports = {
 
         try {
 
-            await StockOrders.create({
+            await StockOrders.create({ 
                 user_id,
                 stock_id: Number(stock_id),
                 stock_quantity: Number(stock_quantity),
@@ -91,7 +91,7 @@ module.exports = {
             res.status(200).json('order excluded')
 
         } catch (error) {
-
+            throw error
             res.status(400).json('Order could not be excluded')
         }
     }
