@@ -11,8 +11,8 @@ class CurrencyOrders extends Model {
             {
                 // email: DataTypes.TEXT,
                 // currency_name: DataTypes.STRING,
-                currency_quantity: DataTypes.DECIMAL(10,2),
-                currency_price: DataTypes.DECIMAL(10,2)
+                currency_quantity: DataTypes.DECIMAL(10, 2),
+                currency_price: DataTypes.DECIMAL(10, 2)
             },
             {
                 sequelize,
@@ -20,7 +20,7 @@ class CurrencyOrders extends Model {
                 updatedAt: 'updated_at',
                 createdAt: 'created_at'
             }
-        );
+        )
     }
 
     static associate(models) {

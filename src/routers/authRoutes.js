@@ -1,5 +1,5 @@
-const AuthController = require('../controller/AuthController')
-const { authSchema, registerSchema } = require('../schemas/authSchema')
+const AuthController = require('../controller/AuthController');
+const { authSchema, registerSchema } = require('../schemas/authSchema');
 
 module.exports = (routes) => {
 
@@ -14,5 +14,4 @@ module.exports = (routes) => {
         [registerSchema],
         AuthController.register
     );
-
 }

@@ -5,7 +5,6 @@ const CurrencyOrders = require('../database/models/CurrencyOrders');
 
 module.exports = {
 
-    //CHECK AFTER LOGIN
     async createOrder(req, res) {
         const { id: currency_id } = req.params;
         const { id: user_id,
@@ -27,7 +26,7 @@ module.exports = {
                 user: parseInt(params.user_id),
                 currency: parseInt(params.id)
             }
-        })
+        });
 
         order.destroy()
         res.json('order excluded')

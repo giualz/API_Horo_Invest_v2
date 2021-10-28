@@ -1,9 +1,9 @@
 'use strict';
 
-const tableName = 'users'
+const tableName = 'users';
 
 module.exports = {
-  
+
   up: async (queryInterface, Sequelize) => {
 
     return queryInterface.createTable(tableName, {
@@ -45,6 +45,7 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
+    
     return queryInterface.dropTable(tableName);
   }
 };

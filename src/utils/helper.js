@@ -13,6 +13,6 @@ exports.generateToken = (payload) => {
     type: "bearer",
     token: jwt.sign({ ...payload }, secret_key, {
       expiresIn: parseInt(expiresIn),
-    }),
+    })
   };
 };

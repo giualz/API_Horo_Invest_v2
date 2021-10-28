@@ -7,6 +7,5 @@ module.exports = (routes) => {
         '/users',
         [adminOnly],
         UserController.index
-    )
-
+    );
 }

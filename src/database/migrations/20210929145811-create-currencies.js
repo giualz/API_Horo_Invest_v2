@@ -3,7 +3,7 @@
 
 'use strict';
 
-const tableName = 'currencies'
+const tableName = 'currencies';
 
 module.exports = {
 
@@ -37,6 +37,6 @@ module.exports = {
 
   down: async (queryInterface, Sequelize) => {
 
-    return queryInterface.dropTable(tableName); 
+    return queryInterface.dropTable(tableName);
   }
 };

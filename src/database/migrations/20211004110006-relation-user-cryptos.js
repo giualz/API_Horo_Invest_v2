@@ -1,7 +1,5 @@
 'use strict';
 
-// const { SequelizeScopeError } = require('sequelize/types');
-
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     return queryInterface.createTable('orders-cryptos', {
@@ -26,11 +24,11 @@ module.exports = {
         onDelete: 'CASCADE'
       },
       crypto_quantity: {
-        type: Sequelize.DECIMAL(10,2),
+        type: Sequelize.DECIMAL(10, 2),
         allowNull: false
       },
       crypto_price: {
-        type: Sequelize.DECIMAL(10,2),
+        type: Sequelize.DECIMAL(10, 2),
         allowNull: false
       },
       created_at: {
@@ -47,6 +45,5 @@ module.exports = {
   down: async (queryInterface) => {
 
     return queryInterface.dropTable('orders-cryptos');
-
   }
 };

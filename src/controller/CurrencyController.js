@@ -2,11 +2,10 @@
 //YET TO BE IMPLEMENTED
 
 const Currency = require('../database/models/currencies');
-// const errorHandler = require('../config/errorHandler');
 
 module.exports = {
     async index(req, res) {
-        const currencies = await Currency.findAll()
+        const currencies = await Currency.findAll();
 
         return res.json(currencies)
     },
@@ -24,13 +23,11 @@ module.exports = {
                 .status(400)
                 .json('Register failed')
         }
-
     },
 
     async show(req, res) {
-        const { id } = req.params
+        const { id } = req.params;
 
-        //find by primary key
         const currency = await Currency.findByPk(id, {
             include: [{
                 association: 'users',
@@ -39,8 +36,8 @@ module.exports = {
                     attributes: []
                 }
             }]
-        })
-        console.log(currency)
+        });
+
         if (!currency) {
             return res
                 .status(400)

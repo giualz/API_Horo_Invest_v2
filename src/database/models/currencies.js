@@ -14,7 +14,7 @@ class Currencies extends Model {
       tableName: 'currencies',
       updatedAt: 'updated_at',
       createdAt: 'created_at'
-    });
+    })
   }
 
   static associate(models) {

@@ -8,8 +8,8 @@ class StockOrders extends Model {
             {
                 user_id: DataTypes.INTEGER,
                 stock_id: DataTypes.INTEGER,
-                stock_quantity: DataTypes.DECIMAL(10,2),
-                stock_price: DataTypes.DECIMAL(10,2)
+                stock_quantity: DataTypes.DECIMAL(10, 2),
+                stock_price: DataTypes.DECIMAL(10, 2)
             },
             {
                 sequelize,
@@ -17,7 +17,7 @@ class StockOrders extends Model {
                 updatedAt: 'updated_at',
                 createdAt: 'created_at'
             }
-        );
+        )
     }
 
     static associate(models) {
