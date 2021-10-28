@@ -1,5 +1,5 @@
-require('dotenv').config()
-const { DB_DIALECT, DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE } = process.env
+require('dotenv').config();
+const { DB_DIALECT, DB_HOST, DB_USERNAME, DB_PASSWORD, DB_DATABASE, DB_PORT } = process.env;
 
 module.exports = {
 
@@ -9,13 +9,13 @@ module.exports = {
         username: DB_USERNAME || 'default',
         password: DB_PASSWORD || 'secret',
         database: DB_DATABASE,
-        port: 5432,
+        port: DB_PORT,
         define: {
             timestamps: true,
             underscore: true,
         },
         dialectOptions: {
             ssl: true
-        },
+        }
     }
 }

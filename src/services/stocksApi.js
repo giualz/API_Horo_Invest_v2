@@ -1,4 +1,4 @@
-const axios = require('axios').default
+const axios = require('axios').default;
 
 const getStocksApi = async (stock) => {
 
@@ -11,14 +11,14 @@ const getStocksApi = async (stock) => {
 
         let response = await axios.request(config)
 
-		let responsePrice = response.data
+        let responsePrice = response.data
 
-		let stockDataObject = {
-            
+        let stockDataObject = {
+
             stockName: stock,
-			stockPrice: responsePrice[1]['PREABE'],
-			stockPriceBefore: responsePrice[0]['PREABE']
-		}
+            stockPrice: responsePrice[1]['PREABE'],
+            stockPriceBefore: responsePrice[0]['PREABE']
+        }
 
         return stockDataObject
 

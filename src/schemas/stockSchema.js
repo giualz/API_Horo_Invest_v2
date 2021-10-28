@@ -1,9 +1,8 @@
-const { validateDto } = require('../utils/handler')
+const { validateDto } = require('../utils/handler');
 const { body } = require('express-validator');
 
-//array (cada item é um middleware) e injeta os erros
 exports.stockSchema = validateDto([
-    body('stock_name') 
+    body('stock_name')
         .notEmpty()
         .withMessage('Insert stock name')
         .isString()
@@ -13,11 +12,11 @@ exports.stockSchema = validateDto([
         .isBoolean()
 ]);
 
-exports.stockOrderSchema = validateDto([    
+exports.stockOrderSchema = validateDto([
     body('stock_quantity')
         .notEmpty()
-        .withMessage('Insert quantity'), 
+        .withMessage('Insert quantity'),
     body('stock_price')
         .notEmpty()
         .withMessage('Insert price'),
-])
+]);
